@@ -18,4 +18,5 @@ content:
     region: content
 hidden:
   field_p_content: true
+  field_p_header: true
   langcode: true

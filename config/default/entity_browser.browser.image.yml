@@ -12,6 +12,7 @@ display_configuration:
   width: '800'
   height: '500'
   link_text: 'Select Image'
+  auto_open: false
 selection_display: no_display
 selection_display_configuration:
   view: null
@@ -40,6 +41,7 @@ widgets:
       view: entity_browser_image
       view_display: entity_browser_1
       submit_text: 'Select Image'
+      auto_select: false
     uuid: 7f58c82a-5ffb-4ddb-8154-9470d077bb06
     weight: -10
     label: 'View Images'

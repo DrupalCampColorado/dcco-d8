@@ -12,6 +12,7 @@ display_configuration:
   width: '800'
   height: '500'
   link_text: 'Select Video'
+  auto_open: false
 selection_display: no_display
 selection_display_configuration: {  }
 widget_selector: tabs
@@ -22,6 +23,7 @@ widgets:
       view: entity_browser_video
       view_display: entity_browser_1
       submit_text: 'Select Video'
+      auto_select: false
     uuid: 029d2b4d-1c78-4281-845e-6f03ed65ecf5
     weight: 1
     label: 'View Videos'

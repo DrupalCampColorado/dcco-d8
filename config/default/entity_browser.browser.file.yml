@@ -12,6 +12,7 @@ display_configuration:
   width: '800'
   height: '500'
   link_text: 'Add File'
+  auto_open: false
 selection_display: no_display
 selection_display_configuration: {  }
 widget_selector: tabs
@@ -32,6 +33,7 @@ widgets:
       view: entity_browser_file
       view_display: entity_browser_1
       submit_text: 'Select file'
+      auto_select: false
     uuid: eb105ea2-c806-4d4f-a4cf-82d76ad88d23
     weight: -10
     label: 'View Files'

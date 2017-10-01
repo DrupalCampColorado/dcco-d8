@@ -4,3 +4,6 @@ status: true
 dependencies: {  }
 id: single_text_area
 label: 'Single - Text Area'
+icon_uuid: null
+description: null
+behavior_plugins: {  }

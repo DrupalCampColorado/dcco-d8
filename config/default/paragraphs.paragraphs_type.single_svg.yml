@@ -4,4 +4,6 @@ status: true
 dependencies: {  }
 id: single_svg
 label: 'Single - SVG'
+icon_uuid: null
+description: null
 behavior_plugins: {  }
