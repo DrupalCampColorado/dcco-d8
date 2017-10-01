@@ -1,0 +1,39 @@
+uuid: 7001d642-b3d2-4234-a286-68efce9ae6e2
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.article.body
+    - field.field.node.article.field_tags
+    - node.type.article
+  module:
+    - text
+    - user
+_core:
+  default_config_hash: JtAg_-waIt1quMtdDtHIaXJMxvTuSmxW7bWyO6Zd68E
+id: node.article.default
+targetEntityType: node
+bundle: article
+mode: default
+content:
+  body:
+    type: text_default
+    weight: 0
+    settings: {  }
+    third_party_settings: {  }
+    label: hidden
+    region: content
+  field_tags:
+    type: entity_reference_label
+    weight: 10
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    region: content
+  links:
+    weight: 100
+    region: content
+hidden:
+  field_tags: true
+  langcode: true

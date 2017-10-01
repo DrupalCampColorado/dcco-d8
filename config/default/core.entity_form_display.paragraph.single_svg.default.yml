@@ -1,0 +1,33 @@
+uuid: d1096485-5bf2-45bb-9d16-a0a7aab8a123
+langcode: en
+status: true
+dependencies:
+  config:
+    - entity_browser.browser.svg
+    - field.field.paragraph.single_svg.field_svg
+    - paragraphs.paragraphs_type.single_svg
+  module:
+    - entity_browser
+id: paragraph.single_svg.default
+targetEntityType: paragraph
+bundle: single_svg
+mode: default
+content:
+  field_svg:
+    weight: 0
+    settings:
+      entity_browser: svg
+      field_widget_display: rendered_entity
+      field_widget_remove: true
+      selection_mode: selection_append
+      field_widget_display_settings:
+        view_mode: form_preview
+      field_widget_edit: false
+      open: false
+    third_party_settings: {  }
+    type: entity_browser_entity_reference
+    region: content
+hidden:
+  created: true
+  status: true
+  uid: true

@@ -1,0 +1,56 @@
+uuid: 05cd6d55-dfc6-4ed4-be35-6617c9c75532
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.media.form_preview
+    - field.field.media.image.field_image
+    - field.field.media.image.field_image_type
+    - field.field.media.image.field_tags
+    - image.style.medium
+    - media_entity.bundle.image
+  module:
+    - image
+id: media.image.form_preview
+targetEntityType: media
+bundle: image
+mode: form_preview
+content:
+  field_image_type:
+    type: entity_reference_label
+    weight: 2
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    region: content
+  field_tags:
+    type: entity_reference_label
+    weight: 3
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    region: content
+  name:
+    label: hidden
+    type: string
+    weight: 1
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    region: content
+  thumbnail:
+    type: image
+    weight: 0
+    label: hidden
+    settings:
+      image_style: medium
+      image_link: ''
+    third_party_settings: {  }
+    region: content
+hidden:
+  created: true
+  field_image: true
+  langcode: true
+  uid: true

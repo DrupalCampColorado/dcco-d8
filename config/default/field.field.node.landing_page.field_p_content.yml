@@ -1,0 +1,49 @@
+uuid: 0934d996-1075-41f6-b8dc-5c3e5626ed7e
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_p_content
+    - node.type.landing_page
+  module:
+    - entity_reference_revisions
+id: node.landing_page.field_p_content
+field_name: field_p_content
+entity_type: node
+bundle: landing_page
+label: Content
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    target_bundles: null
+    target_bundles_drag_drop:
+      banner_standard:
+        weight: 9
+        enabled: false
+      single_heading:
+        weight: 10
+        enabled: false
+      single_image:
+        weight: 11
+        enabled: false
+      single_svg:
+        weight: 12
+        enabled: false
+      single_text_area:
+        weight: 13
+        enabled: false
+      single_video:
+        weight: 14
+        enabled: false
+      slider_banner_standard:
+        weight: 15
+        enabled: false
+      summary_articles:
+        weight: 16
+        enabled: false
+field_type: entity_reference_revisions

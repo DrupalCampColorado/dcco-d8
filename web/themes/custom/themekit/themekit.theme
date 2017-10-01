@@ -1,0 +1,218 @@
+<?php
+
+/**
+ * Use this file to override Drupal's default HTML output
+ *
+ * 1. Preprocess hooks
+ * 2. Theme suggestions
+ * 3. Utility functions
+ */
+
+use Drupal\file\Entity\File;
+use Drupal\image\Entity\ImageStyle;
+use Drupal\block\Entity\Block;
+use Drupal\views\Views;
+
+//*********************************************
+// 1. Preprocess hooks
+//*********************************************
+
+/**
+ * Implements template_preprocess_page().
+ */
+function themekit_preprocess_page(&$variables) {
+}
+
+/**
+ * Implements template_preprocess_node().
+ */
+function themekit_preprocess_node(&$variables) {
+  // Set our own node type preprocess, drupal creates them by default, but seems to only run hook_preprocess_node__event
+  // on event full pages, not event teasers as well
+  if (!empty($variables['node']) && is_object($variables['node']) && method_exists($variables['node'], 'getType')) {
+    //ensure that the node variable exists and is an object
+    $function = __FUNCTION__ . '_' . $variables['node']->getType();
+    if (function_exists($function)) {
+      $function($variables);
+    }
+  }
+
+}
+
+/**
+ * Implements template_preprocess_field().
+ */
+function themekit_preprocess_field(&$variables) {
+
+}
+
+/**
+ * Implements template_preprocess_node_article().
+ */
+function themekit_preprocess_node_article(&$variables) {
+}
+
+
+/**
+ * Implements template_preprocess_media().
+ */
+function themekit_preprocess_media__svg(&$variables) {
+
+  if (!empty($variables['content']['field_svg'])) {
+    $svg_file_entity = $variables['content']['field_svg']['0']['#file'];
+    if (is_object($svg_file_entity) && method_exists($svg_file_entity, 'getFileUri')) {
+      $variables['svg_url'] = file_create_url($svg_file_entity->getFileUri());
+    }
+  }
+}
+
+//*********************************************
+// 2. Theme suggestions
+//*********************************************
+
+/**
+ * Implements template_theme_suggestions_HOOK_alter().
+ */
+function themekit_theme_suggestions_field_alter(array &$suggestions, array $variables) {
+  $field_name = !empty($variables['element']['#field_name']) ? $variables['element']['#field_name'] : '';
+  $type = !empty($variables['element']['#entity_type']) ? $variables['element']['#entity_type'] : '';
+  $bundle = !empty($variables['element']['#bundle']) ? $variables['element']['#bundle'] : '';
+  $is_paragraph = ($type == 'paragraph');
+
+  // Apply theme suggestions based on field name.
+  switch($field_name) {
+    case 'field_p_content':
+    case 'field_p_header':
+      // Remove all field markup so only the field value markup is output.
+      array_unshift($suggestions, 'field__no_wrapper');
+      break;
+    case 'field_p_column':
+      // Remove field item wrappers.
+      array_unshift($suggestions, 'field__reset');
+      break;
+  }
+
+  // Apply theme suggestions for "field_heading" based on paragraph bundle.
+  if ($field_name == 'field_heading' && $is_paragraph) {
+    switch($bundle) {
+      case 'banner_standard':
+      case 'single_heading':
+        array_unshift($suggestions, 'field__heading_3');
+        break;
+    }
+  }
+
+  switch ($type) {
+    case 'contact_message':
+      $suggestions[] = 'field__' . $type;
+      $suggestions[] = 'field__' . $type . '__' . $variables['element']['#field_type'];
+      break;
+  }
+}
+
+//*********************************************
+// 3. Utility functions
+//*********************************************
+
+/**
+ * Utility function to get the inline css style for a background image.
+ *
+ * @param $entity
+ *  Entity containing the image field.
+ * @param $field_name
+ *  Name of the image field to use.
+ * @param $image_style
+ *  Name of the image style to use.
+ * @return string
+ *  Full css style attribute containing background image.
+ */
+function themekit_get_entity_image_inline_style($entity, $field_name, $image_style = null) {
+  $rendered_style = '';
+
+  if (!$entity->$field_name->isEmpty()) {
+    $file_entity = $entity->get($field_name)->entity->get('field_image')->entity;
+
+    if ($url = themekit_get_image_style_url($file_entity, $image_style)) {
+      $rendered_style = 'style="background-image: url(' . $url . ');"';
+    }
+  }
+
+  return $rendered_style;
+}
+
+/**
+ * Get the url for a specific image style of an image.
+ *
+ * @param File $file
+ *  Image to be used.
+ * @param $image_style
+ *  Name of the image style to use.
+ * @return string
+ */
+function themekit_get_image_style_url(File $file, $image_style) {
+  $uri = $file->getFileUri();
+  if ($image_style) {
+    $url = ImageStyle::load($image_style)->buildUrl($uri);
+  } else {
+    $url = file_create_url($uri);
+  }
+  return $url;
+}
+
+
+/**
+ * Get a renderable array from a block ID
+ *
+ * @param $block_id
+ * @param null $weight
+ *  Optional weight parameter, useful if you are dumping this into a region and need to negotiate its position
+ * @return array
+ */
+function themekit_block_to_renderable_array($block_id, $weight = null) {
+  $block = Block::load($block_id);
+  if (is_null($block)) return [];
+  $block_content = \Drupal::entityTypeManager()
+    ->getViewBuilder('block')
+    ->view($block);
+
+  // set weight
+  if (isset($weight)) {
+    $block_content['#weight'] = $weight;
+  }
+
+  return $block_content;
+}
+
+
+/**
+ * Utility function to create a renderable array from a view
+ *
+ * @param $view_id
+ *  The view machine name id
+ * @param $view_display
+ *  The display machine name id
+ * @param null $view_title
+ *  Optionally add the view title
+ *
+ * @return mixed
+ *  The view as a renderable array
+ */
+function themekit_view_to_renderable_array($view_id, $view_display, $view_title = null) {
+  // set title
+  $view = Views::getView($view_id);
+  $view->setDisplay($view_display);
+
+  if (isset($view_title)) {
+    $view_content['title'] = [
+      '#type' => 'html_tag',
+      '#tag' => 'h2',
+      '#value' => $view->getTitle(),
+      '#attributes' => [
+        'class' => 'view-title',
+      ],
+    ];
+  }
+  $view_content['content'] = views_embed_view($view_id, $view_display);
+
+  return $view_content;
+}
