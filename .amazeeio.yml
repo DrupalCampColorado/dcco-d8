@@ -1,4 +1,4 @@
-sitegroup: dcco_2018
+sitegroup: drupalcamp_colorado
 
 deploy_tasks:
   development:
