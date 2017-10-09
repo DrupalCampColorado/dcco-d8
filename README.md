@@ -114,5 +114,3 @@ section of composer.json:
     }
 }
 ```
-
-# Test Change
