@@ -8,6 +8,7 @@ dependencies:
     - node.type.article
   module:
     - path
+    - scheduler
     - text
 _core:
   default_config_hash: 7CvVDwPYotAZFBa36mcpMKZOfVRRp_iGuPHpHaavI6E
@@ -40,7 +41,8 @@ content:
   langcode:
     type: language_select
     weight: 2
-    settings: {  }
+    settings:
+      include_locked: true
     third_party_settings: {  }
     region: content
   path:
@@ -62,6 +64,13 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
+  status:
+    type: boolean_checkbox
+    settings:
+      display_label: true
+    weight: 121
+    third_party_settings: {  }
+    region: content
   sticky:
     type: boolean_checkbox
     settings:

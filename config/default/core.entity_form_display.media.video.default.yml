@@ -9,6 +9,7 @@ dependencies:
     - field.field.media.video.field_video_type
     - media_entity.bundle.video
   module:
+    - path
     - video_embed_field
 id: media.video.default
 targetEntityType: media
@@ -48,7 +49,8 @@ content:
   langcode:
     type: language_select
     weight: 1
-    settings: {  }
+    settings:
+      include_locked: true
     third_party_settings: {  }
     region: content
   name:
@@ -59,6 +61,12 @@ content:
       placeholder: ''
     third_party_settings: {  }
     region: content
+  path:
+    type: path
+    weight: 30
+    region: content
+    settings: {  }
+    third_party_settings: {  }
   uid:
     type: entity_reference_autocomplete
     weight: 2

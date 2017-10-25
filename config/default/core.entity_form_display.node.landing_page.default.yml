@@ -9,6 +9,7 @@ dependencies:
   module:
     - paragraphs_previewer
     - path
+    - scheduler
 id: node.landing_page.default
 targetEntityType: node
 bundle: landing_page
@@ -47,7 +48,8 @@ content:
   langcode:
     type: language_select
     weight: 4
-    settings: {  }
+    settings:
+      include_locked: true
     third_party_settings: {  }
     region: content
   path:
@@ -69,6 +71,13 @@ content:
     region: content
     settings: {  }
     third_party_settings: {  }
+  status:
+    type: boolean_checkbox
+    settings:
+      display_label: true
+    weight: 121
+    third_party_settings: {  }
+    region: content
   sticky:
     type: boolean_checkbox
     settings:

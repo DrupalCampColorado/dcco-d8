@@ -134,9 +134,6 @@
         "Thumbnail not updated": "https://www.drupal.org/files/issues/2749695_14_media_entity_image.patch",
         "Add proper image formatter for display current image": "https://www.drupal.org/files/issues/add_image_formatter-2850169-5.patch"
       },
-      "drupal/video_embed_field": {
-        "Thumbnail not updated": "./patches/video_embed_field_update_thumb.patch"
-      },
       "drupal/swiftmailer": {
         "htmlspecialchars() expects parameter 1 to be string": "https://www.drupal.org/files/issues/swiftmailer-htmlspecialchars_-2855052-9-do-not-test.patch"
       }
