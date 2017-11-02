@@ -4,6 +4,7 @@ status: true
 dependencies:
   config:
     - field.storage.paragraph.field_p_components
+    - paragraphs.paragraphs_type.layout_advanced_ctas
     - paragraphs.paragraphs_type.layout_component_group
     - paragraphs.paragraphs_type.single_text_area
   module:
@@ -23,6 +24,7 @@ settings:
   handler_settings:
     negate: 0
     target_bundles:
+      layout_advanced_ctas: layout_advanced_ctas
       single_text_area: single_text_area
     target_bundles_drag_drop:
       layout_component_group:
@@ -31,9 +33,15 @@ settings:
       simple_content:
         weight: 10
         enabled: false
+      compound_banner:
+        weight: 11
+        enabled: false
       simple_testimonial:
         weight: 11
         enabled: false
+      layout_advanced_ctas:
+        enabled: true
+        weight: 12
       single_heading:
         weight: 12
         enabled: false

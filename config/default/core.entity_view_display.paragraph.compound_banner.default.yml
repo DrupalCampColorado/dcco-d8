@@ -6,30 +6,11 @@ dependencies:
     - field.field.paragraph.compound_banner.field_bg_video
     - field.field.paragraph.compound_banner.field_media_image
     - paragraphs.paragraphs_type.compound_banner
-  module:
-    - video_embed_field
 id: paragraph.compound_banner.default
 targetEntityType: paragraph
 bundle: compound_banner
 mode: default
-content:
-  field_bg_video:
-    weight: 0
-    label: above
-    settings:
-      responsive: true
-      width: 854
-      height: 480
-      autoplay: true
-    third_party_settings: {  }
-    type: video_embed_field_video
-    region: content
-  field_media_image:
-    weight: 1
-    label: above
-    settings:
-      link: true
-    third_party_settings: {  }
-    type: entity_reference_label
-    region: content
-hidden: {  }
+content: {  }
+hidden:
+  field_bg_video: true
+  field_media_image: true
