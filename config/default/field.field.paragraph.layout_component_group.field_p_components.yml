@@ -1,0 +1,52 @@
+uuid: df7bbf2b-6b9b-47b4-8abf-3c890a449331
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_p_components
+    - paragraphs.paragraphs_type.layout_component_group
+    - paragraphs.paragraphs_type.single_text_area
+  module:
+    - entity_reference_revisions
+id: paragraph.layout_component_group.field_p_components
+field_name: field_p_components
+entity_type: paragraph
+bundle: layout_component_group
+label: Components
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    negate: 0
+    target_bundles:
+      single_text_area: single_text_area
+    target_bundles_drag_drop:
+      layout_component_group:
+        weight: 9
+        enabled: false
+      simple_content:
+        weight: 10
+        enabled: false
+      simple_testimonial:
+        weight: 11
+        enabled: false
+      single_heading:
+        weight: 12
+        enabled: false
+      single_image:
+        weight: 13
+        enabled: false
+      single_svg:
+        weight: 14
+        enabled: false
+      single_text_area:
+        enabled: true
+        weight: 15
+      single_video:
+        weight: 16
+        enabled: false
+field_type: entity_reference_revisions
