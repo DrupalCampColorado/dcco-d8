@@ -1,0 +1,55 @@
+uuid: 4eb8c601-46ea-458e-ac5b-dc123d6a58eb
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_p_columns
+    - paragraphs.paragraphs_type.layout_advanced_ctas
+    - paragraphs.paragraphs_type.simple_content
+  module:
+    - entity_reference_revisions
+id: paragraph.layout_advanced_ctas.field_p_columns
+field_name: field_p_columns
+entity_type: paragraph
+bundle: layout_advanced_ctas
+label: Columns
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    negate: 0
+    target_bundles:
+      simple_content: simple_content
+    target_bundles_drag_drop:
+      layout_advanced_ctas:
+        weight: 10
+        enabled: false
+      layout_component_group:
+        weight: 11
+        enabled: false
+      simple_content:
+        enabled: true
+        weight: 12
+      simple_testimonial:
+        weight: 13
+        enabled: false
+      single_heading:
+        weight: 14
+        enabled: false
+      single_image:
+        weight: 15
+        enabled: false
+      single_svg:
+        weight: 16
+        enabled: false
+      single_text_area:
+        weight: 17
+        enabled: false
+      single_video:
+        weight: 18
+        enabled: false
+field_type: entity_reference_revisions

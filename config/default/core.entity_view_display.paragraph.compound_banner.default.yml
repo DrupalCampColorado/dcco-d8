@@ -1,0 +1,16 @@
+uuid: 23f80348-ae03-4bea-888c-abcabb19c850
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.compound_banner.field_bg_video
+    - field.field.paragraph.compound_banner.field_media_image
+    - paragraphs.paragraphs_type.compound_banner
+id: paragraph.compound_banner.default
+targetEntityType: paragraph
+bundle: compound_banner
+mode: default
+content: {  }
+hidden:
+  field_bg_video: true
+  field_media_image: true
