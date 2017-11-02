@@ -1,0 +1,30 @@
+uuid: f319d471-cd7f-4f69-8681-a341ce7f94d9
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.simple_testimonial.field_credit
+    - field.field.paragraph.simple_testimonial.field_quote
+    - paragraphs.paragraphs_type.simple_testimonial
+id: paragraph.simple_testimonial.default
+targetEntityType: paragraph
+bundle: simple_testimonial
+mode: default
+content:
+  field_credit:
+    weight: 1
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_quote:
+    weight: 0
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+hidden: {  }

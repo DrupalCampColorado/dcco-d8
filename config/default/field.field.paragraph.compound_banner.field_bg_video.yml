@@ -1,0 +1,25 @@
+uuid: 0a0c37b2-afd4-41df-b887-5545a7c12ba1
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_bg_video
+    - paragraphs.paragraphs_type.compound_banner
+  module:
+    - video_embed_field
+id: paragraph.compound_banner.field_bg_video
+field_name: field_bg_video
+entity_type: paragraph
+bundle: compound_banner
+label: 'Background video'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  allowed_providers:
+    vimeo: '0'
+    youtube: '0'
+    youtube_playlist: '0'
+field_type: video_embed_field

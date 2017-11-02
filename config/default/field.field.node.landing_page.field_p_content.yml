@@ -5,6 +5,11 @@ dependencies:
   config:
     - field.storage.node.field_p_content
     - node.type.landing_page
+    - paragraphs.paragraphs_type.layout_component_group
+    - paragraphs.paragraphs_type.simple_content
+    - paragraphs.paragraphs_type.simple_testimonial
+    - paragraphs.paragraphs_type.single_heading
+    - paragraphs.paragraphs_type.single_text_area
   module:
     - entity_reference_revisions
 id: node.landing_page.field_p_content
@@ -20,30 +25,39 @@ default_value_callback: ''
 settings:
   handler: 'default:paragraph'
   handler_settings:
-    target_bundles: null
+    negate: 0
+    target_bundles:
+      single_heading: single_heading
+      layout_component_group: layout_component_group
+      simple_content: simple_content
+      simple_testimonial: simple_testimonial
+      single_text_area: single_text_area
     target_bundles_drag_drop:
-      banner_standard:
-        weight: 9
-        enabled: false
-      single_heading:
+      layout_advanced_ctas:
         weight: 10
         enabled: false
+      single_heading:
+        enabled: true
+        weight: 10
+      layout_component_group:
+        enabled: true
+        weight: 11
       single_image:
         weight: 11
         enabled: false
+      simple_content:
+        enabled: true
+        weight: 12
       single_svg:
         weight: 12
         enabled: false
-      single_text_area:
+      simple_testimonial:
+        enabled: true
         weight: 13
-        enabled: false
+      single_text_area:
+        enabled: true
+        weight: 13
       single_video:
         weight: 14
-        enabled: false
-      slider_banner_standard:
-        weight: 15
-        enabled: false
-      summary_articles:
-        weight: 16
         enabled: false
 field_type: entity_reference_revisions
