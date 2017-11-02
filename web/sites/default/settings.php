@@ -114,15 +114,3 @@ if (file_exists(__DIR__ . '/services.local.yml')) {
 }
 $settings['install_profile'] = 'standard';
 $config_directories['sync'] = '../config/default';
-
-if (getenv('AMAZEEIO_SITE_ENVIRONMENT')) {
-  switch (getenv('AMAZEEIO_SITE_ENVIRONMENT')) {
-    case 'development':
-      $config['mailchimp.settings']['api_key'] = getenv('MAILCHIMP_API_KEY');
-      break;
-
-    case 'production':
-      $config['mailchimp.settings']['api_key'] = getenv('MAILCHIMP_API_KEY');
-      break;
-  }
-}

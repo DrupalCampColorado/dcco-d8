@@ -27,3 +27,6 @@ $config['system.performance']['js']['preprocess'] = 0;
 if(getenv('AMAZEEIO_PRODUCTION_URL')){
   $config['stage_file_proxy.settings']['origin'] = getenv('AMAZEEIO_PRODUCTION_URL');
 }
+
+// Sets Mailchimp API key
+$config['mailchimp.settings']['api_key'] = getenv('AMAZEEIO_MAILCHIMP_API_KEY');
