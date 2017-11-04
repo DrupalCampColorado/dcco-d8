@@ -13,7 +13,7 @@ _core:
 id: themekit_account_menu
 theme: themekit
 region: header
-weight: -4
+weight: -1
 provider: null
 plugin: 'system_menu_block:account'
 settings:

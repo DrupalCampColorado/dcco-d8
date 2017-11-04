@@ -1,0 +1,43 @@
+uuid: 77c2f7c5-a3b5-4a6a-8507-8a832f8b4cdc
+langcode: en
+status: null
+dependencies: {  }
+id: volunteer_form
+title: 'Volunteer Form'
+mc_lists:
+  3f43033511: 3f43033511
+  8fb0c8563a: 0
+  916595c29a: 0
+  c3b54e9eee: 0
+  e297a8508d: 0
+  53e9bc1ffb: 0
+  61d9a8d661: 0
+  0e7c12f8c5: 0
+  7513542776: 0
+  0dfa07a2b2: 0
+  257a90f215: 0
+  2fa31828d7: 0
+  69cfea9ec4: 0
+  ede30ca762: 0
+mode: 1
+mergefields:
+  EMAIL: true
+  FNAME: true
+  LNAME: true
+description: ''
+doublein: false
+send_welcome: null
+include_interest_groups: true
+settings:
+  path: ''
+  submit_button: Volunteer!
+  confirmation_message: 'Thanks for volunteering for DrupalCamp Colorado 2018! We''ll be in touch shortly.'
+  destination: ''
+  mergefields:
+    EMAIL: 'O:8:"stdClass":8:{s:3:"tag";s:5:"EMAIL";s:4:"name";s:13:"Email Address";s:4:"type";s:5:"email";s:8:"required";b:1;s:13:"default_value";s:0:"";s:6:"public";b:1;s:13:"display_order";i:1;s:7:"options";O:8:"stdClass":1:{s:4:"size";i:25;}}'
+    FNAME: 'O:8:"stdClass":12:{s:8:"merge_id";i:1;s:3:"tag";s:5:"FNAME";s:4:"name";s:10:"First Name";s:4:"type";s:4:"text";s:8:"required";b:1;s:13:"default_value";s:0:"";s:6:"public";b:1;s:13:"display_order";i:2;s:7:"options";O:8:"stdClass":1:{s:4:"size";i:25;}s:9:"help_text";s:0:"";s:7:"list_id";s:10:"3f43033511";s:6:"_links";a:4:{i:0;O:8:"stdClass":4:{s:3:"rel";s:4:"self";s:4:"href";s:66:"https://us16.api.mailchimp.com/3.0/lists/3f43033511/merge-fields/1";s:6:"method";s:3:"GET";s:12:"targetSchema";s:85:"https://us16.api.mailchimp.com/schema/3.0/Definitions/Lists/MergeFields/Response.json";}i:1;O:8:"stdClass":5:{s:3:"rel";s:6:"parent";s:4:"href";s:64:"https://us16.api.mailchimp.com/3.0/lists/3f43033511/merge-fields";s:6:"method";s:3:"GET";s:12:"targetSchema";s:95:"https://us16.api.mailchimp.com/schema/3.0/Definitions/Lists/MergeFields/CollectionResponse.json";s:6:"schema";s:80:"https://us16.api.mailchimp.com/schema/3.0/CollectionLinks/Lists/MergeFields.json";}i:2;O:8:"stdClass":5:{s:3:"rel";s:6:"update";s:4:"href";s:66:"https://us16.api.mailchimp.com/3.0/lists/3f43033511/merge-fields/1";s:6:"method";s:5:"PATCH";s:12:"targetSchema";s:85:"https://us16.api.mailchimp.com/schema/3.0/Definitions/Lists/MergeFields/Response.json";s:6:"schema";s:82:"https://us16.api.mailchimp.com/schema/3.0/Definitions/Lists/MergeFields/PATCH.json";}i:3;O:8:"stdClass":3:{s:3:"rel";s:6:"delete";s:4:"href";s:66:"https://us16.api.mailchimp.com/3.0/lists/3f43033511/merge-fields/1";s:6:"method";s:6:"DELETE";}}}'
+    LNAME: 'O:8:"stdClass":12:{s:8:"merge_id";i:2;s:3:"tag";s:5:"LNAME";s:4:"name";s:9:"Last Name";s:4:"type";s:4:"text";s:8:"required";b:1;s:13:"default_value";s:0:"";s:6:"public";b:1;s:13:"display_order";i:3;s:7:"options";O:8:"stdClass":1:{s:4:"size";i:25;}s:9:"help_text";s:0:"";s:7:"list_id";s:10:"3f43033511";s:6:"_links";a:4:{i:0;O:8:"stdClass":4:{s:3:"rel";s:4:"self";s:4:"href";s:66:"https://us16.api.mailchimp.com/3.0/lists/3f43033511/merge-fields/2";s:6:"method";s:3:"GET";s:12:"targetSchema";s:85:"https://us16.api.mailchimp.com/schema/3.0/Definitions/Lists/MergeFields/Response.json";}i:1;O:8:"stdClass":5:{s:3:"rel";s:6:"parent";s:4:"href";s:64:"https://us16.api.mailchimp.com/3.0/lists/3f43033511/merge-fields";s:6:"method";s:3:"GET";s:12:"targetSchema";s:95:"https://us16.api.mailchimp.com/schema/3.0/Definitions/Lists/MergeFields/CollectionResponse.json";s:6:"schema";s:80:"https://us16.api.mailchimp.com/schema/3.0/CollectionLinks/Lists/MergeFields.json";}i:2;O:8:"stdClass":5:{s:3:"rel";s:6:"update";s:4:"href";s:66:"https://us16.api.mailchimp.com/3.0/lists/3f43033511/merge-fields/2";s:6:"method";s:5:"PATCH";s:12:"targetSchema";s:85:"https://us16.api.mailchimp.com/schema/3.0/Definitions/Lists/MergeFields/Response.json";s:6:"schema";s:82:"https://us16.api.mailchimp.com/schema/3.0/Definitions/Lists/MergeFields/PATCH.json";}i:3;O:8:"stdClass":3:{s:3:"rel";s:6:"delete";s:4:"href";s:66:"https://us16.api.mailchimp.com/3.0/lists/3f43033511/merge-fields/2";s:6:"method";s:6:"DELETE";}}}'
+  description: ''
+  doublein: 0
+  include_interest_groups: 1
+  safe_interest_groups: 1
