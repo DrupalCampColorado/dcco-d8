@@ -5,6 +5,7 @@ dependencies:
   config:
     - field.storage.paragraph.field_p_columns
     - paragraphs.paragraphs_type.layout_advanced_ctas
+    - paragraphs.paragraphs_type.reference_block
     - paragraphs.paragraphs_type.simple_content
   module:
     - entity_reference_revisions
@@ -23,6 +24,7 @@ settings:
   handler_settings:
     negate: 0
     target_bundles:
+      reference_block: reference_block
       simple_content: simple_content
     target_bundles_drag_drop:
       layout_advanced_ctas:
@@ -31,9 +33,15 @@ settings:
       layout_component_group:
         weight: 11
         enabled: false
+      reference_block:
+        enabled: true
+        weight: 12
       simple_content:
         enabled: true
         weight: 12
+      compound_banner:
+        weight: 13
+        enabled: false
       simple_testimonial:
         weight: 13
         enabled: false
