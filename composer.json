@@ -138,6 +138,9 @@
       },
       "drupal/swiftmailer": {
         "htmlspecialchars() expects parameter 1 to be string": "https://www.drupal.org/files/issues/swiftmailer-htmlspecialchars_-2855052-9-do-not-test.patch"
+      },
+      "drupal/mailchimp": {
+        "Missing empty check": "https://www.drupal.org/files/issues/mailchimp-missing-check-of-signup-status-2899683-3.patch"
       }
     },
     "installer-paths": {

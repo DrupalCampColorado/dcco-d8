@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "c564ab14e9ccf39388d8119ea6ea6f17",
+    "content-hash": "01fd72f1635e02a159afa276cb01d337",
     "packages": [
         {
             "name": "alchemy/zippy",
@@ -3592,7 +3592,7 @@
             "support": {
                 "source": "http://cgit.drupalcode.org/field_tools"
             },
-            "time": "2017-10-13T12:22:45+00:00"
+            "time": "2017-10-13 12:22:45"
         },
         {
             "name": "drupal/focal_point",
@@ -4086,6 +4086,9 @@
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
                     }
+                },
+                "patches_applied": {
+                    "Missing empty check": "https://www.drupal.org/files/issues/mailchimp-missing-check-of-signup-status-2899683-3.patch"
                 }
             },
             "autoload": {
@@ -4878,7 +4881,7 @@
             "support": {
                 "source": "http://cgit.drupalcode.org/paragraphs_browser"
             },
-            "time": "2017-10-23T21:54:37+00:00"
+            "time": "2017-10-23 21:54:37"
         },
         {
             "name": "drupal/paragraphs_previewer",
@@ -4921,7 +4924,7 @@
             "support": {
                 "source": "http://cgit.drupalcode.org/paragraphs_previewer"
             },
-            "time": "2016-05-19T00:21:58+00:00"
+            "time": "2016-05-19 00:21:58"
         },
         {
             "name": "drupal/password_policy",
@@ -5416,7 +5419,7 @@
             "support": {
                 "source": "http://cgit.drupalcode.org/security_review"
             },
-            "time": "2016-10-20T15:43:48+00:00"
+            "time": "2016-10-20 15:43:48"
         },
         {
             "name": "drupal/shield",
