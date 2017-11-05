@@ -1,0 +1,24 @@
+uuid: faf7384b-fd78-4760-9a68-89da7d5619fe
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.layout_advanced_ctas.field_p_columns
+    - paragraphs.paragraphs_type.layout_advanced_ctas
+  module:
+    - entity_reference_revisions
+id: paragraph.layout_advanced_ctas.default
+targetEntityType: paragraph
+bundle: layout_advanced_ctas
+mode: default
+content:
+  field_p_columns:
+    type: entity_reference_revisions_entity_view
+    weight: 1
+    label: hidden
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    region: content
+hidden: {  }

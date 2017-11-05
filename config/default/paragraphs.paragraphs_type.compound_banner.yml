@@ -1,0 +1,9 @@
+uuid: 64f6913c-780a-41c2-8113-14d79a1fe32d
+langcode: en
+status: true
+dependencies: {  }
+id: compound_banner
+label: 'Compound - Banner'
+icon_uuid: null
+description: ''
+behavior_plugins: {  }

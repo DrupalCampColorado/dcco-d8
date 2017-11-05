@@ -1,0 +1,30 @@
+uuid: ee31bca8-f4fe-40b3-b24e-f0ce4ac2bbf2
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.layout_advanced_ctas.field_p_columns
+    - paragraphs.paragraphs_type.layout_advanced_ctas
+  module:
+    - paragraphs
+id: paragraph.layout_advanced_ctas.default
+targetEntityType: paragraph
+bundle: layout_advanced_ctas
+mode: default
+content:
+  field_p_columns:
+    type: entity_reference_paragraphs
+    weight: 1
+    settings:
+      title: Paragraph
+      title_plural: Paragraphs
+      edit_mode: open
+      add_mode: dropdown
+      form_display_mode: default
+      default_paragraph_type: ''
+    third_party_settings: {  }
+    region: content
+hidden:
+  created: true
+  status: true
+  uid: true

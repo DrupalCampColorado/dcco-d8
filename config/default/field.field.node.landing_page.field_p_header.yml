@@ -5,6 +5,7 @@ dependencies:
   config:
     - field.storage.node.field_p_header
     - node.type.landing_page
+    - paragraphs.paragraphs_type.compound_banner
     - paragraphs.paragraphs_type.single_heading
   module:
     - entity_reference_revisions
@@ -21,8 +22,10 @@ default_value_callback: ''
 settings:
   handler: 'default:paragraph'
   handler_settings:
+    negate: 0
     target_bundles:
       single_heading: single_heading
+      compound_banner: compound_banner
     target_bundles_drag_drop:
       single_heading:
         enabled: true
@@ -38,5 +41,20 @@ settings:
         enabled: false
       single_video:
         weight: 10
+        enabled: false
+      compound_banner:
+        enabled: true
+        weight: 11
+      layout_advanced_ctas:
+        weight: 12
+        enabled: false
+      layout_component_group:
+        weight: 13
+        enabled: false
+      simple_content:
+        weight: 14
+        enabled: false
+      simple_testimonial:
+        weight: 15
         enabled: false
 field_type: entity_reference_revisions

@@ -83,7 +83,8 @@
     "drupal/swiftmailer": "^1.0",
     "drupal/backup_migrate": "^4.0",
     "drupal/scheduler": "^1.0",
-    "drupal/mailchimp": "^1.3"
+    "drupal/mailchimp": "^1.3",
+    "drupal/block_field": "^1.0@alpha"
   },
   "require-dev": {
     "behat/mink": "~1.7",
@@ -137,6 +138,9 @@
       },
       "drupal/swiftmailer": {
         "htmlspecialchars() expects parameter 1 to be string": "https://www.drupal.org/files/issues/swiftmailer-htmlspecialchars_-2855052-9-do-not-test.patch"
+      },
+      "drupal/mailchimp": {
+        "Missing empty check": "https://www.drupal.org/files/issues/mailchimp-missing-check-of-signup-status-2899683-3.patch"
       }
     },
     "installer-paths": {

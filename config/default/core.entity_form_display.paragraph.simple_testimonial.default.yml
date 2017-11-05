@@ -1,0 +1,33 @@
+uuid: 83f62355-106d-4296-86d1-92b43968b8c5
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.simple_testimonial.field_credit
+    - field.field.paragraph.simple_testimonial.field_quote
+    - paragraphs.paragraphs_type.simple_testimonial
+id: paragraph.simple_testimonial.default
+targetEntityType: paragraph
+bundle: simple_testimonial
+mode: default
+content:
+  field_credit:
+    weight: 1
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_quote:
+    weight: 0
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+hidden:
+  created: true
+  status: true
+  uid: true

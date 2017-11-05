@@ -22,3 +22,6 @@ $config['system.performance']['js']['preprocess'] = 1;
 
 // Disabling stage file proxy on production, with that the module can be enabled even on production
 $config['stage_file_proxy.settings']['origin'] = false;
+
+// Sets Mailchimp API key
+$config['mailchimp.settings']['api_key'] = getenv('AMAZEEIO_MAILCHIMP_API_KEY');

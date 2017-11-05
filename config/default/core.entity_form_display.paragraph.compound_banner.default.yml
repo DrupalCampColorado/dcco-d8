@@ -1,0 +1,41 @@
+uuid: e81978a8-244b-48b4-9329-458de420749b
+langcode: en
+status: true
+dependencies:
+  config:
+    - entity_browser.browser.image
+    - field.field.paragraph.compound_banner.field_bg_video
+    - field.field.paragraph.compound_banner.field_media_image
+    - paragraphs.paragraphs_type.compound_banner
+  module:
+    - entity_browser
+    - video_embed_field
+id: paragraph.compound_banner.default
+targetEntityType: paragraph
+bundle: compound_banner
+mode: default
+content:
+  field_bg_video:
+    weight: 0
+    settings: {  }
+    third_party_settings: {  }
+    type: video_embed_field_textfield
+    region: content
+  field_media_image:
+    weight: 1
+    settings:
+      entity_browser: image
+      field_widget_display: rendered_entity
+      field_widget_edit: true
+      field_widget_remove: true
+      selection_mode: selection_append
+      field_widget_display_settings:
+        view_mode: default
+      open: false
+    third_party_settings: {  }
+    type: entity_browser_entity_reference
+    region: content
+hidden:
+  created: true
+  status: true
+  uid: true

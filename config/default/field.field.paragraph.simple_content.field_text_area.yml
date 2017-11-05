@@ -1,0 +1,28 @@
+uuid: 7f32448e-5f44-48da-997d-1646393ea45b
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_text_area
+    - paragraphs.paragraphs_type.simple_content
+  module:
+    - allowed_formats
+    - text
+third_party_settings:
+  allowed_formats:
+    basic_html: basic_html
+    restricted_html: '0'
+    full_html: '0'
+    plain_text: '0'
+id: paragraph.simple_content.field_text_area
+field_name: field_text_area
+entity_type: paragraph
+bundle: simple_content
+label: 'Text Area'
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long
