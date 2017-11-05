@@ -12,3 +12,6 @@
 @mixin font-vw-max($size, $breakpoint: large, $breakpoint-map: $breakpoints) {
   @include vw-with-max($size, $breakpoint: large, $breakpoint-map: $breakpoints, $property: font-size)
 }
+
+/// Import Google Fonts
+@import url('https://fonts.googleapis.com/css?family=Arvo:700|Cabin:400,700|Special+Elite');
