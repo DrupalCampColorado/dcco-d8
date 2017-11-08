@@ -1,0 +1,10 @@
+
+
+form {
+  @include selectors(form-inputs) {
+    box-shadow: none;
+    border: 2px solid $gray;
+    background: transparent;
+    border-radius: 0;
+  }
+}

@@ -51,3 +51,71 @@ $buttons: (
     extend: _base
   )
 );
+
+$layouts: (
+  page: (
+    width: 1085px,
+    gutters: (
+      small: 20px,
+      large: 40px
+    )
+  ),
+  content: (
+    width: 780,
+    gutters: (
+      small: 20px,
+      large: 40px
+    )
+  ),
+  header: (
+    width: 1005px,
+    gutters: (
+      small: 20px,
+      large: 70px
+    )
+  )
+);
+
+$selector-groups: (
+  form-inputs: (
+    text: "[type='text']",
+    password: "[type='password']",
+    date: "[type='date']",
+    datetime: "[type='datetime']",
+    datetime-local: "[type='datetime-local']",
+    month: "[type='month']",
+    week: "[type='week']",
+    email: "[type='email']",
+    number: "[type='number']",
+    search: "[type='search']",
+    tel: "[type='tel']",
+    time: "[type='time']",
+    url: "[type='url']",
+    color: "[type='color']",
+    textarea: "textarea"
+  ),
+  headers: (
+    h1: 'h1',
+    h2: 'h2',
+    h3: 'h3',
+    h4: 'h4',
+    h5: 'h5',
+    h6: 'h6'
+  ),
+  buttons: (
+    input: '[type="button"]',
+    submit: '[type="submit"]',
+    button: 'button'
+  ),
+  body-text: (
+    p: 'p',
+    ul: 'ul',
+    ol: 'ol',
+    div: 'div'
+  ),
+  active: (
+    hover: "&:hover",
+    focus: "&:focus",
+    active: "&:active"
+  )
+);
