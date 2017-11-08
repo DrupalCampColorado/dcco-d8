@@ -1,0 +1,25 @@
+uuid: 4b91d07e-0059-4a20-9ec4-7d3c25bbcaf8
+langcode: en
+status: true
+dependencies:
+  content:
+    - 'block_content:basic:b83fb743-95d4-44fd-a315-eef686475cf2'
+  module:
+    - block_content
+  theme:
+    - themekit
+id: footerleftcopy
+theme: themekit
+region: footer
+weight: -7
+provider: null
+plugin: 'block_content:b83fb743-95d4-44fd-a315-eef686475cf2'
+settings:
+  id: 'block_content:b83fb743-95d4-44fd-a315-eef686475cf2'
+  label: 'Footer left copy'
+  provider: block_content
+  label_display: '0'
+  status: true
+  info: ''
+  view_mode: full
+visibility: {  }

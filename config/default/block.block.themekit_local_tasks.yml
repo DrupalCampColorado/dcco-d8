@@ -8,8 +8,8 @@ _core:
   default_config_hash: X9I1OB0W3WlWtrK-CNcg6hNWwa8wficanpH8pYnDZDE
 id: themekit_local_tasks
 theme: themekit
-region: content
-weight: -7
+region: highlighted
+weight: -5
 provider: null
 plugin: local_tasks_block
 settings:

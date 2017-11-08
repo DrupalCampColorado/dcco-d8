@@ -8,8 +8,8 @@ _core:
   default_config_hash: 13GQpeITIJsp1kyPniXtWZfyFH87vb1xxJCHifL4UeE
 id: themekit_local_actions
 theme: themekit
-region: content
-weight: -7
+region: highlighted
+weight: -6
 provider: null
 plugin: local_actions_block
 settings:

@@ -1,0 +1,19 @@
+uuid: 38ea6266-1f5e-4a2d-aa56-e84c40435ad1
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_event_location
+    - paragraphs.paragraphs_type.compound_banner
+id: paragraph.compound_banner.field_event_location
+field_name: field_event_location
+entity_type: paragraph
+bundle: compound_banner
+label: 'Event Location'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

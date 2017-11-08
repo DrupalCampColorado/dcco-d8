@@ -1,0 +1,19 @@
+uuid: 244bb17f-cb8e-4a42-9a72-d9f11bc5bec2
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_event_date
+    - paragraphs.paragraphs_type.compound_banner
+id: paragraph.compound_banner.field_event_date
+field_name: field_event_date
+entity_type: paragraph
+bundle: compound_banner
+label: 'Event date'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

@@ -5,9 +5,13 @@ dependencies:
   config:
     - entity_browser.browser.image
     - field.field.paragraph.compound_banner.field_bg_video
+    - field.field.paragraph.compound_banner.field_event_date
+    - field.field.paragraph.compound_banner.field_event_location
+    - field.field.paragraph.compound_banner.field_mailchimp_form
     - field.field.paragraph.compound_banner.field_media_image
     - paragraphs.paragraphs_type.compound_banner
   module:
+    - block_field
     - entity_browser
     - video_embed_field
 id: paragraph.compound_banner.default
@@ -20,6 +24,30 @@ content:
     settings: {  }
     third_party_settings: {  }
     type: video_embed_field_textfield
+    region: content
+  field_event_date:
+    weight: 3
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_event_location:
+    weight: 4
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_mailchimp_form:
+    weight: 2
+    settings:
+      plugin_id: ''
+      settings: {  }
+    third_party_settings: {  }
+    type: block_field_default
     region: content
   field_media_image:
     weight: 1

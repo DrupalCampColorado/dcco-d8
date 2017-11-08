@@ -1,6 +1,6 @@
 uuid: 03660495-b14e-4f8c-a1d3-163940ad8f2e
 langcode: en
-status: true
+status: false
 dependencies:
   config:
     - system.menu.footer
@@ -13,7 +13,7 @@ _core:
 id: themekit_footer
 theme: themekit
 region: footer
-weight: -6
+weight: -5
 provider: null
 plugin: 'system_menu_block:footer'
 settings:

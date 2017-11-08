@@ -1,0 +1,23 @@
+uuid: a2656afc-200f-4728-ad20-a13e972be288
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_mailchimp_form
+    - paragraphs.paragraphs_type.compound_banner
+  module:
+    - block_field
+id: paragraph.compound_banner.field_mailchimp_form
+field_name: field_mailchimp_form
+entity_type: paragraph
+bundle: compound_banner
+label: 'Mailchimp form'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  plugin_ids:
+    'mailchimp_signup_subscribe_block:stay_in_the_loop': 'mailchimp_signup_subscribe_block:stay_in_the_loop'
+field_type: block_field

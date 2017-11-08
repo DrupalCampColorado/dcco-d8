@@ -4,13 +4,41 @@ status: true
 dependencies:
   config:
     - field.field.paragraph.compound_banner.field_bg_video
+    - field.field.paragraph.compound_banner.field_event_date
+    - field.field.paragraph.compound_banner.field_event_location
+    - field.field.paragraph.compound_banner.field_mailchimp_form
     - field.field.paragraph.compound_banner.field_media_image
     - paragraphs.paragraphs_type.compound_banner
+  module:
+    - block_field
 id: paragraph.compound_banner.default
 targetEntityType: paragraph
 bundle: compound_banner
 mode: default
-content: {  }
+content:
+  field_event_date:
+    weight: 1
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_event_location:
+    weight: 2
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_mailchimp_form:
+    weight: 0
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: block_field
+    region: content
 hidden:
   field_bg_video: true
   field_media_image: true

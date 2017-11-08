@@ -11,7 +11,7 @@ _core:
 id: themekit_content
 theme: themekit
 region: content
-weight: 0
+weight: -6
 provider: null
 plugin: system_main_block
 settings:
