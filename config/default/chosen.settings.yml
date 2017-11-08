@@ -16,3 +16,4 @@ disabled_themes:
 chosen_include: 0
 _core:
   default_config_hash: 8OBgqA1x01J7SgSvBzOELfxP9Bu998XgnQjf4EN40mo
+allow_single_deselect: false

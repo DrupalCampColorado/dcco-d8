@@ -27,7 +27,7 @@ content:
     settings:
       title: Paragraph
       title_plural: Paragraphs
-      edit_mode: preview
+      edit_mode: closed
       add_mode: select
       form_display_mode: default
       default_paragraph_type: _none
