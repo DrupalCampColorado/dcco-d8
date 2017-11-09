@@ -66,6 +66,7 @@ $light-gray: #e6e6e6;
 $medium-gray: #cacaca;
 $dark-gray: #8a8a8a;
 $gray: #e1e1e1;
+$font-gray: #4f4f4f;
 $black: #0a0a0a;
 $white: #fefefe;
 $light-orange: #f9ad53;
@@ -91,10 +92,12 @@ $global-text-direction: ltr;
 $global-flexbox: false;
 $print-transparent-backgrounds: true;
 
+$xtra-small-margin: rem-calc(20);
 $small-margin: rem-calc(38);
 $medium-margin: rem-calc(57);
 $medium-large-margin: rem-calc(90);
-$large-margin: rem-calc(110);
+$large-margin: rem-calc(109);
+$xtra-large-margin: rem-calc(152);
 
 // 14 16 18 24
 $small-font-size: rem-calc(14);
