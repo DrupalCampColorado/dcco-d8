@@ -56,9 +56,12 @@
   .paragraph--type--single-text-area {
     font-size: $large-font-size;
     color: $font-gray;
-    padding: $medium-margin $xtra-large-margin;
+    padding: $medium-margin;
     text-align: center;
     line-height: rem-calc(32);
+    @include breakpoint(medium-large) {
+      padding: $medium-margin $xtra-large-margin;
+    }
   }
 }
 
@@ -90,15 +93,20 @@
 .paragraph--type--layout-advanced-ctas {
   .field--name-field-p-columns {
     display: flex;
-    flex-flow: row nowrap;
+    flex-flow: row wrap;
     flex-basis: auto;
     justify-content: space-evenly;
     position: relative;
     z-index: z(front);
     > .field__item {
-      width: 50%;
-      padding: $medium-large-margin $large-margin;
+      padding: $medium-large-margin $medium-margin;
       font-size: $medium-font-size;
+      @include breakpoint(medium) {
+        width: 50%;
+      }
+      @include breakpoint(medium-large) {
+        padding: $medium-large-margin $large-margin;
+      }
       &:first-child {
         background-color: $green;
         color: $white;
@@ -112,6 +120,10 @@
       }
       &:last-child {
         background-color: $white;
+        min-width: 100vw;
+        @include breakpoint(medium) {
+          min-width: auto;
+        }
       }
     }
     .field--name-field-heading {
@@ -125,11 +137,14 @@
 
 .paragraph--type--simple-testimonial {
   background-color: $dark-orange;
-  padding: $medium-large-margin $xtra-large-margin;
+  padding: $medium-large-margin $medium-margin;
   text-align: center;
   color: $white;
   position: relative;
   z-index: z(middle);
+  @include breakpoint(medium) {
+    padding: $medium-large-margin $xtra-large-margin;
+  }
   &:before {
     content: '';
     position: absolute;
@@ -149,7 +164,7 @@
     height: 150%;
     background: url(../images/svg/MountainBadge.svg) #fff;
     z-index: 0;
-    opacity: 0.15;
+    opacity: 0.1;
     background-repeat: no-repeat;
     background-position: center;
     transform: translate(-50%, -50%);
