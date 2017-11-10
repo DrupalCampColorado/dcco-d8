@@ -11,7 +11,18 @@
   flex-basis: auto;
   justify-content: space-between;
   color: $white;
-  background-color: $light-orange;
+  padding: rem-calc(40 60);
+  position: relative;
+  &:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -200%;
+    width: 500%;
+    height: 100%;
+    background-color: $light-orange;
+    z-index: z(behind);
+  }
 }
 
 .location-wrapper {
@@ -51,12 +62,39 @@
   }
 }
 
+.paragraph--type--layout-component-group {
+  position: relative;
+  &:before {
+    content: '';
+    position: absolute;
+    top: -40px;
+    left: -200%;
+    width: 500%;
+    height: calc(100% + 40px);
+    background: $tan;
+    z-index: z(behind);
+  }
+  &:after {
+    content: '';
+    position: absolute;
+    top: -40px;
+    left: -100%;
+    width: 300%;
+    height: calc(100% + 40px);
+    background: url(../images/map-texture.png);
+    z-index: z(behind);
+    opacity: 0.15;
+  }
+}
+
 .paragraph--type--layout-advanced-ctas {
   .field--name-field-p-columns {
     display: flex;
     flex-flow: row nowrap;
     flex-basis: auto;
     justify-content: space-evenly;
+    position: relative;
+    z-index: z(front);
     > .field__item {
       width: 50%;
       padding: $medium-large-margin $large-margin;
@@ -87,16 +125,46 @@
 
 .paragraph--type--simple-testimonial {
   background-color: $dark-orange;
-  padding: $medium-margin $xtra-large-margin;
+  padding: $medium-large-margin $xtra-large-margin;
   text-align: center;
   color: $white;
+  position: relative;
+  z-index: z(middle);
+  &:before {
+    content: '';
+    position: absolute;
+    top: -40px;
+    left: -200%;
+    width: 500%;
+    height: calc(100% + 40px);
+    background-color: $dark-orange;
+    z-index: z(behind);
+  }
+  &:after {
+    content: '';
+    position: absolute;
+    top: 43%;
+    left: 50%;
+    width: 80%;
+    height: 150%;
+    background: url(../images/svg/MountainBadge.svg) #fff;
+    z-index: 0;
+    opacity: 0.15;
+    background-repeat: no-repeat;
+    background-position: center;
+    transform: translate(-50%, -50%);
+  }
   .field--name-field-quote {
+    position: relative;
     font-size: $large-font-size;
     font-family: $font-special-elite;
     padding: 0 $small-margin $xtra-small-margin;
+    z-index: z(front);
   }
   .field--name-field-credit {
+    position: relative;
     font-size: $main-font-size;
     font-family: $font-cabin;
+    z-index: z(front);
   }
 }

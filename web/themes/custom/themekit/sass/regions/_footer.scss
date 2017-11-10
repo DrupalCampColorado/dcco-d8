@@ -5,4 +5,12 @@
 .region-footer {
   color: $white;
   background-color: $light-orange;
+  z-index: z(front);
+  position: relative;
+  min-height: 122px;
+  > .block {
+    max-width: $global-width;
+    margin: 0 auto;
+    padding: rem-calc(12 0 96);
+  }
 }
