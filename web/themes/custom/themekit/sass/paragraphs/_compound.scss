@@ -82,8 +82,8 @@
     font-family: $font-arvo;
     text-align: right;
     text-transform: uppercase;
-
     line-height: 1.6;
+    max-width: 45%;
 
     @include breakpoint(medium) {
       line-height: rem-calc(28);
@@ -101,6 +101,39 @@
 
       @include breakpoint(medium) {
         font-size: $main-font-size;
+      }
+
+      a {
+        color: #fff;
+        position: relative;
+        display: inline-block;
+        text-decoration: underline;
+
+        @include breakpoint(medium) {
+          text-decoration: none;
+        }
+
+        &:after {
+          display: none;
+          content: '';
+          position: absolute;
+          bottom: 4px;
+          left: 0;
+          width: 100%;
+          height: 2px;
+          background: rgba(#fff, 0.6);
+          transition: 0.2s background;
+
+          @include breakpoint(medium) {
+            display: block;
+          }
+        }
+
+        @include selectors(active) {
+          &:after {
+            background: rgba(#fff, 1);
+          }
+        }
       }
     }
   }

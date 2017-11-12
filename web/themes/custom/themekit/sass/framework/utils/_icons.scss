@@ -4,7 +4,7 @@
 ////
 
 $icon-font-name: 'icomoon' !default;
-$icon-font-dir: '../../fonts/icomoon/fonts/' !default;
+$icon-font-dir: '../fonts/icomoon/fonts/' !default;
 $icons-enabled: false;
 
 @mixin themekit-icons() {
