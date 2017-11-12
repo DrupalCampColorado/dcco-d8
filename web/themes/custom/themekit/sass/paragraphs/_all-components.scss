@@ -13,6 +13,7 @@
   color: $white;
   padding: rem-calc(40 60);
   position: relative;
+  min-height: 530px;
   &:before {
     content: '';
     position: absolute;
@@ -20,7 +21,7 @@
     left: -200%;
     width: 500%;
     height: 100%;
-    background-color: $light-orange;
+    background-color: rgba($light-orange, 0.5);
     z-index: z(behind);
   }
 }

@@ -5,14 +5,20 @@
 import './foundation-setup';
 import './skip-link';
 import './inject-svg';
+import vidkit from "./jquery.vidKit";
+const $ = jQuery;
 
-// EXAMPLE FOUNDATION COMPONENT USAGE
-import './menus-example';
+let opts = {
+  videoUrl: 'https://www.youtube.com/watch?v=M-aytlS3gwQ',
+  videoType: 'youtube',
+  aspectRatio: 1.33333, // 16:9
+  autoplay: 1,
+  loop: 1,
+  controls: 0,
+  backgroundSize: 'cover', // Same as css background-size: cover;
+  verticalAlign: 'middle'
+};
 
-// EXAMPLE ONLY
-import Person from './Person';
-
-// create
-const themekit = new Person('Mr. Theme Kit');
-
-console.log(`${Person.greeting()} ${themekit.sayName()}`);
+$(window).on('load', () => {
+  const bgVideo = new vidkit($(".paragraph--type--compound-banner .video-container"), opts);
+});

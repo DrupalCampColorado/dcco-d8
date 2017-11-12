@@ -1,3 +1,14 @@
 ////
 /// Paragraphs - Compound
 ////
+
+.paragraph--type--compound-banner {
+  position: relative;
+  overflow: hidden;
+
+  .video-container {
+    position: absolute;
+    z-index: -2;
+
+  }
+}
