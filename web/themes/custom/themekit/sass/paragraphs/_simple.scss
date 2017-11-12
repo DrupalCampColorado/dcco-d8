@@ -1,3 +1,55 @@
 ////
 /// Paragraphs - Simple
 ////
+
+/// Simple - Testimonial
+/// ====================
+.paragraph--type--simple-testimonial {
+  background-color: $dark-orange;
+  padding: $medium-large-margin $medium-margin;
+  text-align: center;
+  color: $white;
+  position: relative;
+  z-index: z(middle);
+
+  @include breakpoint(medium) {
+    padding: $medium-large-margin $xtra-large-margin;
+  }
+  &:before {
+    content: '';
+    position: absolute;
+    top: -40px;
+    left: -200%;
+    width: 500%;
+    height: calc(100% + 40px);
+    background-color: $dark-orange;
+    z-index: z(behind);
+  }
+  &:after {
+    content: '';
+    position: absolute;
+    top: 43%;
+    left: 50%;
+    width: 80%;
+    height: 150%;
+    background: url(../images/svg/MountainBadge.svg) #fff;
+    z-index: 0;
+    opacity: 0.1;
+    background-repeat: no-repeat;
+    background-position: center;
+    transform: translate(-50%, -50%);
+  }
+  .field--name-field-quote {
+    position: relative;
+    font-size: $large-font-size;
+    font-family: $font-special-elite;
+    padding: 0 $small-margin $xtra-small-margin;
+    z-index: z(front);
+  }
+  .field--name-field-credit {
+    position: relative;
+    font-size: $main-font-size;
+    font-family: $font-cabin;
+    z-index: z(front);
+  }
+}

@@ -1,0 +1,73 @@
+/// Layout - Component group
+/// ======================
+.paragraph--type--layout-component-group {
+  position: relative;
+  &:before {
+    content: '';
+    position: absolute;
+    top: -40px;
+    left: -200%;
+    width: 500%;
+    height: calc(100% + 40px);
+    background: $tan;
+    z-index: z(behind);
+  }
+  &:after {
+    content: '';
+    position: absolute;
+    top: -40px;
+    left: -100%;
+    width: 300%;
+    height: calc(100% + 40px);
+    background: url(../images/map-texture.png);
+    z-index: z(behind);
+    opacity: 0.15;
+  }
+}
+
+/// Layout - Advanced ctas
+/// ======================
+.paragraph--type--layout-advanced-ctas {
+  .field--name-field-p-columns {
+    display: flex;
+    flex-flow: row wrap;
+    flex-basis: auto;
+    justify-content: space-evenly;
+    position: relative;
+    z-index: z(front);
+    > .field__item {
+      padding: $medium-large-margin $medium-margin;
+      font-size: $medium-font-size;
+      @include breakpoint(medium) {
+        width: 50%;
+      }
+      @include breakpoint(medium-large) {
+        padding: $medium-large-margin $large-margin;
+      }
+      &:first-child {
+        background-color: $green;
+        color: $white;
+        p {
+          margin-bottom: rem-calc(22);
+          &:last-child {
+            font-size: $main-font-size;
+            margin-bottom: 0;
+          }
+        }
+      }
+      &:last-child {
+        background-color: $white;
+        min-width: 100vw;
+        @include breakpoint(medium) {
+          min-width: auto;
+        }
+      }
+    }
+    .field--name-field-heading {
+      font-family: $font-arvo;
+      font-weight: bold;
+      text-transform: uppercase;
+      margin-bottom: $xtra-small-margin;
+    }
+  }
+}

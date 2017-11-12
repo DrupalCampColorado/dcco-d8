@@ -1,3 +1,69 @@
 ////
 /// Paragraphs - Compound
 ////
+
+.paragraph--type--compound-banner {
+  position: relative;
+
+}
+
+/// Header Banner Area
+/// ==================
+.paragraph--type--compound-banner {
+  display: flex;
+  flex-flow: row nowrap;
+  flex-basis: auto;
+  justify-content: space-between;
+  color: $white;
+  padding: rem-calc(40 60);
+  position: relative;
+  overflow: hidden;
+  min-height: 530px;
+
+  &:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -200%;
+    width: 500%;
+    height: 100%;
+    background-color: rgba($light-orange, 0.5);
+    z-index: z(behind);
+  }
+
+  .video-container {
+    position: absolute;
+    opacity: 0;
+    z-index: -4;
+    transition: 1s opacity ease-out;
+
+    &.loaded {
+      opacity: 1;
+    }
+  }
+
+  .location-wrapper {
+    font-family: $font-arvo;
+    text-align: right;
+    text-transform: uppercase;
+    line-height: rem-calc(28);
+    .field--name-field-event-date {
+      font-size: $medium-font-size;
+    }
+    .field-name-field-event-location {
+      font-size: $main-font-size;
+    }
+  }
+
+  .block-mailchimp-signup {
+    h2 {
+      font-size: $medium-font-size;
+      font-family: $font-arvo;
+      font-weight: bold;
+      text-transform: uppercase;
+    }
+    label {
+      @extend .visually-hidden;
+    }
+  }
+}

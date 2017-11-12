@@ -58,6 +58,7 @@ view_mode ? 'paragraph--view-mode--' ~ view_mode|clean_class,
 {% set rendered_content = content|without('') %}
 
 <div{{ attributes.addClass(classes) }}>
+  <div class="video-container"></div>
   {{ rendered_content.field_mailchimp_form }}
   <div class="location-wrapper">
     {{ rendered_content.field_event_date }}

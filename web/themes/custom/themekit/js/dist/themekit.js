@@ -52,28 +52,32 @@
 
 	__webpack_require__(13);
 
-	__webpack_require__(15);
+	var _jquery = __webpack_require__(15);
 
-	var _Person = __webpack_require__(18);
-
-	var _Person2 = _interopRequireDefault(_Person);
+	var _jquery2 = _interopRequireDefault(_jquery);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-	// create
-
-
-	// EXAMPLE FOUNDATION COMPONENT USAGE
-	var themekit = new _Person2.default('Mr. Theme Kit');
-
-	// EXAMPLE ONLY
 	/**
 	 * theme.js
 	 * Entry point for all theme related js.
 	 */
+	var $ = jQuery;
 
+	var opts = {
+	  videoUrl: 'https://www.youtube.com/watch?v=M-aytlS3gwQ',
+	  videoType: 'youtube',
+	  aspectRatio: 1.33333, // 16:9
+	  autoplay: 1,
+	  loop: 1,
+	  controls: 0,
+	  backgroundSize: 'cover', // Same as css background-size: cover;
+	  verticalAlign: 'middle'
+	};
 
-	console.log(_Person2.default.greeting() + ' ' + themekit.sayName());
+	$(window).on('load', function () {
+	  var bgVideo = new _jquery2.default($(".paragraph--type--compound-banner .video-container"), opts);
+	});
 
 /***/ }),
 /* 1 */
@@ -2091,649 +2095,6 @@
 
 /***/ }),
 /* 15 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	var _jquery = __webpack_require__(2);
-
-	var _jquery2 = _interopRequireDefault(_jquery);
-
-	__webpack_require__(1);
-
-	var _foundation = __webpack_require__(16);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	new _foundation.DropdownMenu((0, _jquery2.default)('.menu--main > ul')); /**
-	                                                                          * EXAMPLE FOUNDATION COMPONENT USAGE
-	                                                                          *
-	                                                                          * Include all of your dependencies. For any foundation components this will include
-	                                                                          * jQuery and the foundation setup js file.
-	                                                                          *
-	                                                                          * The include the module from the `foundation-sites/js/` dir as shown below.
-	                                                                          */
-
-/***/ }),
-/* 16 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	exports.DropdownMenu = undefined;
-
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-	var _jquery = __webpack_require__(2);
-
-	var _jquery2 = _interopRequireDefault(_jquery);
-
-	var _foundationUtil = __webpack_require__(7);
-
-	var _foundationUtil2 = __webpack_require__(10);
-
-	var _foundationUtil3 = __webpack_require__(5);
-
-	var _foundationUtil4 = __webpack_require__(4);
-
-	var _foundation = __webpack_require__(17);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-	/**
-	 * DropdownMenu module.
-	 * @module foundation.dropdown-menu
-	 * @requires foundation.util.keyboard
-	 * @requires foundation.util.box
-	 * @requires foundation.util.nest
-	 */
-
-	var DropdownMenu = function (_Plugin) {
-	  _inherits(DropdownMenu, _Plugin);
-
-	  function DropdownMenu() {
-	    _classCallCheck(this, DropdownMenu);
-
-	    return _possibleConstructorReturn(this, (DropdownMenu.__proto__ || Object.getPrototypeOf(DropdownMenu)).apply(this, arguments));
-	  }
-
-	  _createClass(DropdownMenu, [{
-	    key: '_setup',
-
-	    /**
-	     * Creates a new instance of DropdownMenu.
-	     * @class
-	     * @fires DropdownMenu#init
-	     * @param {jQuery} element - jQuery object to make into a dropdown menu.
-	     * @param {Object} options - Overrides to the default plugin settings.
-	     */
-	    value: function _setup(element, options) {
-	      this.$element = element;
-	      this.options = _jquery2.default.extend({}, DropdownMenu.defaults, this.$element.data(), options);
-	      this.className = 'DropdownMenu'; // ie9 back compat
-
-	      _foundationUtil2.Nest.Feather(this.$element, 'dropdown');
-	      this._init();
-
-	      _foundationUtil.Keyboard.register('DropdownMenu', {
-	        'ENTER': 'open',
-	        'SPACE': 'open',
-	        'ARROW_RIGHT': 'next',
-	        'ARROW_UP': 'up',
-	        'ARROW_DOWN': 'down',
-	        'ARROW_LEFT': 'previous',
-	        'ESCAPE': 'close'
-	      });
-	    }
-
-	    /**
-	     * Initializes the plugin, and calls _prepareMenu
-	     * @private
-	     * @function
-	     */
-
-	  }, {
-	    key: '_init',
-	    value: function _init() {
-	      var subs = this.$element.find('li.is-dropdown-submenu-parent');
-	      this.$element.children('.is-dropdown-submenu-parent').children('.is-dropdown-submenu').addClass('first-sub');
-
-	      this.$menuItems = this.$element.find('[role="menuitem"]');
-	      this.$tabs = this.$element.children('[role="menuitem"]');
-	      this.$tabs.find('ul.is-dropdown-submenu').addClass(this.options.verticalClass);
-
-	      if (this.options.alignment === 'auto') {
-	        if (this.$element.hasClass(this.options.rightClass) || (0, _foundationUtil4.rtl)() || this.$element.parents('.top-bar-right').is('*')) {
-	          this.options.alignment = 'right';
-	          subs.addClass('opens-left');
-	        } else {
-	          this.options.alignment = 'left';
-	          subs.addClass('opens-right');
-	        }
-	      } else {
-	        if (this.options.alignment === 'right') {
-	          subs.addClass('opens-left');
-	        } else {
-	          subs.addClass('opens-right');
-	        }
-	      }
-	      this.changed = false;
-	      this._events();
-	    }
-	  }, {
-	    key: '_isVertical',
-	    value: function _isVertical() {
-	      return this.$tabs.css('display') === 'block' || this.$element.css('flex-direction') === 'column';
-	    }
-	  }, {
-	    key: '_isRtl',
-	    value: function _isRtl() {
-	      return this.$element.hasClass('align-right') || (0, _foundationUtil4.rtl)() && !this.$element.hasClass('align-left');
-	    }
-
-	    /**
-	     * Adds event listeners to elements within the menu
-	     * @private
-	     * @function
-	     */
-
-	  }, {
-	    key: '_events',
-	    value: function _events() {
-	      var _this = this,
-	          hasTouch = 'ontouchstart' in window || typeof window.ontouchstart !== 'undefined',
-	          parClass = 'is-dropdown-submenu-parent';
-
-	      // used for onClick and in the keyboard handlers
-	      var handleClickFn = function handleClickFn(e) {
-	        var $elem = (0, _jquery2.default)(e.target).parentsUntil('ul', '.' + parClass),
-	            hasSub = $elem.hasClass(parClass),
-	            hasClicked = $elem.attr('data-is-click') === 'true',
-	            $sub = $elem.children('.is-dropdown-submenu');
-
-	        if (hasSub) {
-	          if (hasClicked) {
-	            if (!_this.options.closeOnClick || !_this.options.clickOpen && !hasTouch || _this.options.forceFollow && hasTouch) {
-	              return;
-	            } else {
-	              e.stopImmediatePropagation();
-	              e.preventDefault();
-	              _this._hide($elem);
-	            }
-	          } else {
-	            e.preventDefault();
-	            e.stopImmediatePropagation();
-	            _this._show($sub);
-	            $elem.add($elem.parentsUntil(_this.$element, '.' + parClass)).attr('data-is-click', true);
-	          }
-	        }
-	      };
-
-	      if (this.options.clickOpen || hasTouch) {
-	        this.$menuItems.on('click.zf.dropdownmenu touchstart.zf.dropdownmenu', handleClickFn);
-	      }
-
-	      // Handle Leaf element Clicks
-	      if (_this.options.closeOnClickInside) {
-	        this.$menuItems.on('click.zf.dropdownmenu', function (e) {
-	          var $elem = (0, _jquery2.default)(this),
-	              hasSub = $elem.hasClass(parClass);
-	          if (!hasSub) {
-	            _this._hide();
-	          }
-	        });
-	      }
-
-	      if (!this.options.disableHover) {
-	        this.$menuItems.on('mouseenter.zf.dropdownmenu', function (e) {
-	          var $elem = (0, _jquery2.default)(this),
-	              hasSub = $elem.hasClass(parClass);
-
-	          if (hasSub) {
-	            clearTimeout($elem.data('_delay'));
-	            $elem.data('_delay', setTimeout(function () {
-	              _this._show($elem.children('.is-dropdown-submenu'));
-	            }, _this.options.hoverDelay));
-	          }
-	        }).on('mouseleave.zf.dropdownmenu', function (e) {
-	          var $elem = (0, _jquery2.default)(this),
-	              hasSub = $elem.hasClass(parClass);
-	          if (hasSub && _this.options.autoclose) {
-	            if ($elem.attr('data-is-click') === 'true' && _this.options.clickOpen) {
-	              return false;
-	            }
-
-	            clearTimeout($elem.data('_delay'));
-	            $elem.data('_delay', setTimeout(function () {
-	              _this._hide($elem);
-	            }, _this.options.closingTime));
-	          }
-	        });
-	      }
-	      this.$menuItems.on('keydown.zf.dropdownmenu', function (e) {
-	        var $element = (0, _jquery2.default)(e.target).parentsUntil('ul', '[role="menuitem"]'),
-	            isTab = _this.$tabs.index($element) > -1,
-	            $elements = isTab ? _this.$tabs : $element.siblings('li').add($element),
-	            $prevElement,
-	            $nextElement;
-
-	        $elements.each(function (i) {
-	          if ((0, _jquery2.default)(this).is($element)) {
-	            $prevElement = $elements.eq(i - 1);
-	            $nextElement = $elements.eq(i + 1);
-	            return;
-	          }
-	        });
-
-	        var nextSibling = function nextSibling() {
-	          if (!$element.is(':last-child')) {
-	            $nextElement.children('a:first').focus();
-	            e.preventDefault();
-	          }
-	        },
-	            prevSibling = function prevSibling() {
-	          $prevElement.children('a:first').focus();
-	          e.preventDefault();
-	        },
-	            openSub = function openSub() {
-	          var $sub = $element.children('ul.is-dropdown-submenu');
-	          if ($sub.length) {
-	            _this._show($sub);
-	            $element.find('li > a:first').focus();
-	            e.preventDefault();
-	          } else {
-	            return;
-	          }
-	        },
-	            closeSub = function closeSub() {
-	          //if ($element.is(':first-child')) {
-	          var close = $element.parent('ul').parent('li');
-	          close.children('a:first').focus();
-	          _this._hide(close);
-	          e.preventDefault();
-	          //}
-	        };
-	        var functions = {
-	          open: openSub,
-	          close: function close() {
-	            _this._hide(_this.$element);
-	            _this.$menuItems.eq(0).children('a').focus(); // focus to first element
-	            e.preventDefault();
-	          },
-	          handled: function handled() {
-	            e.stopImmediatePropagation();
-	          }
-	        };
-
-	        if (isTab) {
-	          if (_this._isVertical()) {
-	            // vertical menu
-	            if (_this._isRtl()) {
-	              // right aligned
-	              _jquery2.default.extend(functions, {
-	                down: nextSibling,
-	                up: prevSibling,
-	                next: closeSub,
-	                previous: openSub
-	              });
-	            } else {
-	              // left aligned
-	              _jquery2.default.extend(functions, {
-	                down: nextSibling,
-	                up: prevSibling,
-	                next: openSub,
-	                previous: closeSub
-	              });
-	            }
-	          } else {
-	            // horizontal menu
-	            if (_this._isRtl()) {
-	              // right aligned
-	              _jquery2.default.extend(functions, {
-	                next: prevSibling,
-	                previous: nextSibling,
-	                down: openSub,
-	                up: closeSub
-	              });
-	            } else {
-	              // left aligned
-	              _jquery2.default.extend(functions, {
-	                next: nextSibling,
-	                previous: prevSibling,
-	                down: openSub,
-	                up: closeSub
-	              });
-	            }
-	          }
-	        } else {
-	          // not tabs -> one sub
-	          if (_this._isRtl()) {
-	            // right aligned
-	            _jquery2.default.extend(functions, {
-	              next: closeSub,
-	              previous: openSub,
-	              down: nextSibling,
-	              up: prevSibling
-	            });
-	          } else {
-	            // left aligned
-	            _jquery2.default.extend(functions, {
-	              next: openSub,
-	              previous: closeSub,
-	              down: nextSibling,
-	              up: prevSibling
-	            });
-	          }
-	        }
-	        _foundationUtil.Keyboard.handleKey(e, 'DropdownMenu', functions);
-	      });
-	    }
-
-	    /**
-	     * Adds an event handler to the body to close any dropdowns on a click.
-	     * @function
-	     * @private
-	     */
-
-	  }, {
-	    key: '_addBodyHandler',
-	    value: function _addBodyHandler() {
-	      var $body = (0, _jquery2.default)(document.body),
-	          _this = this;
-	      $body.off('mouseup.zf.dropdownmenu touchend.zf.dropdownmenu').on('mouseup.zf.dropdownmenu touchend.zf.dropdownmenu', function (e) {
-	        var $link = _this.$element.find(e.target);
-	        if ($link.length) {
-	          return;
-	        }
-
-	        _this._hide();
-	        $body.off('mouseup.zf.dropdownmenu touchend.zf.dropdownmenu');
-	      });
-	    }
-
-	    /**
-	     * Opens a dropdown pane, and checks for collisions first.
-	     * @param {jQuery} $sub - ul element that is a submenu to show
-	     * @function
-	     * @private
-	     * @fires DropdownMenu#show
-	     */
-
-	  }, {
-	    key: '_show',
-	    value: function _show($sub) {
-	      var idx = this.$tabs.index(this.$tabs.filter(function (i, el) {
-	        return (0, _jquery2.default)(el).find($sub).length > 0;
-	      }));
-	      var $sibs = $sub.parent('li.is-dropdown-submenu-parent').siblings('li.is-dropdown-submenu-parent');
-	      this._hide($sibs, idx);
-	      $sub.css('visibility', 'hidden').addClass('js-dropdown-active').parent('li.is-dropdown-submenu-parent').addClass('is-active');
-	      var clear = _foundationUtil3.Box.ImNotTouchingYou($sub, null, true);
-	      if (!clear) {
-	        var oldClass = this.options.alignment === 'left' ? '-right' : '-left',
-	            $parentLi = $sub.parent('.is-dropdown-submenu-parent');
-	        $parentLi.removeClass('opens' + oldClass).addClass('opens-' + this.options.alignment);
-	        clear = _foundationUtil3.Box.ImNotTouchingYou($sub, null, true);
-	        if (!clear) {
-	          $parentLi.removeClass('opens-' + this.options.alignment).addClass('opens-inner');
-	        }
-	        this.changed = true;
-	      }
-	      $sub.css('visibility', '');
-	      if (this.options.closeOnClick) {
-	        this._addBodyHandler();
-	      }
-	      /**
-	       * Fires when the new dropdown pane is visible.
-	       * @event DropdownMenu#show
-	       */
-	      this.$element.trigger('show.zf.dropdownmenu', [$sub]);
-	    }
-
-	    /**
-	     * Hides a single, currently open dropdown pane, if passed a parameter, otherwise, hides everything.
-	     * @function
-	     * @param {jQuery} $elem - element with a submenu to hide
-	     * @param {Number} idx - index of the $tabs collection to hide
-	     * @private
-	     */
-
-	  }, {
-	    key: '_hide',
-	    value: function _hide($elem, idx) {
-	      var $toClose;
-	      if ($elem && $elem.length) {
-	        $toClose = $elem;
-	      } else if (idx !== undefined) {
-	        $toClose = this.$tabs.not(function (i, el) {
-	          return i === idx;
-	        });
-	      } else {
-	        $toClose = this.$element;
-	      }
-	      var somethingToClose = $toClose.hasClass('is-active') || $toClose.find('.is-active').length > 0;
-
-	      if (somethingToClose) {
-	        $toClose.find('li.is-active').add($toClose).attr({
-	          'data-is-click': false
-	        }).removeClass('is-active');
-
-	        $toClose.find('ul.js-dropdown-active').removeClass('js-dropdown-active');
-
-	        if (this.changed || $toClose.find('opens-inner').length) {
-	          var oldClass = this.options.alignment === 'left' ? 'right' : 'left';
-	          $toClose.find('li.is-dropdown-submenu-parent').add($toClose).removeClass('opens-inner opens-' + this.options.alignment).addClass('opens-' + oldClass);
-	          this.changed = false;
-	        }
-	        /**
-	         * Fires when the open menus are closed.
-	         * @event DropdownMenu#hide
-	         */
-	        this.$element.trigger('hide.zf.dropdownmenu', [$toClose]);
-	      }
-	    }
-
-	    /**
-	     * Destroys the plugin.
-	     * @function
-	     */
-
-	  }, {
-	    key: '_destroy',
-	    value: function _destroy() {
-	      this.$menuItems.off('.zf.dropdownmenu').removeAttr('data-is-click').removeClass('is-right-arrow is-left-arrow is-down-arrow opens-right opens-left opens-inner');
-	      (0, _jquery2.default)(document.body).off('.zf.dropdownmenu');
-	      _foundationUtil2.Nest.Burn(this.$element, 'dropdown');
-	    }
-	  }]);
-
-	  return DropdownMenu;
-	}(_foundation.Plugin);
-
-	/**
-	 * Default settings for plugin
-	 */
-
-
-	DropdownMenu.defaults = {
-	  /**
-	   * Disallows hover events from opening submenus
-	   * @option
-	   * @type {boolean}
-	   * @default false
-	   */
-	  disableHover: false,
-	  /**
-	   * Allow a submenu to automatically close on a mouseleave event, if not clicked open.
-	   * @option
-	   * @type {boolean}
-	   * @default true
-	   */
-	  autoclose: true,
-	  /**
-	   * Amount of time to delay opening a submenu on hover event.
-	   * @option
-	   * @type {number}
-	   * @default 50
-	   */
-	  hoverDelay: 50,
-	  /**
-	   * Allow a submenu to open/remain open on parent click event. Allows cursor to move away from menu.
-	   * @option
-	   * @type {boolean}
-	   * @default false
-	   */
-	  clickOpen: false,
-	  /**
-	   * Amount of time to delay closing a submenu on a mouseleave event.
-	   * @option
-	   * @type {number}
-	   * @default 500
-	   */
-
-	  closingTime: 500,
-	  /**
-	   * Position of the menu relative to what direction the submenus should open. Handled by JS. Can be `'auto'`, `'left'` or `'right'`.
-	   * @option
-	   * @type {string}
-	   * @default 'auto'
-	   */
-	  alignment: 'auto',
-	  /**
-	   * Allow clicks on the body to close any open submenus.
-	   * @option
-	   * @type {boolean}
-	   * @default true
-	   */
-	  closeOnClick: true,
-	  /**
-	   * Allow clicks on leaf anchor links to close any open submenus.
-	   * @option
-	   * @type {boolean}
-	   * @default true
-	   */
-	  closeOnClickInside: true,
-	  /**
-	   * Class applied to vertical oriented menus, Foundation default is `vertical`. Update this if using your own class.
-	   * @option
-	   * @type {string}
-	   * @default 'vertical'
-	   */
-	  verticalClass: 'vertical',
-	  /**
-	   * Class applied to right-side oriented menus, Foundation default is `align-right`. Update this if using your own class.
-	   * @option
-	   * @type {string}
-	   * @default 'align-right'
-	   */
-	  rightClass: 'align-right',
-	  /**
-	   * Boolean to force overide the clicking of links to perform default action, on second touch event for mobile.
-	   * @option
-	   * @type {boolean}
-	   * @default true
-	   */
-	  forceFollow: true
-	};
-
-	exports.DropdownMenu = DropdownMenu;
-
-/***/ }),
-/* 17 */
-/***/ (function(module, exports, __webpack_require__) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	exports.Plugin = undefined;
-
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-	var _jquery = __webpack_require__(2);
-
-	var _jquery2 = _interopRequireDefault(_jquery);
-
-	var _foundationUtil = __webpack_require__(4);
-
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-	// Abstract class for providing lifecycle hooks. Expect plugins to define AT LEAST
-	// {function} _setup (replaces previous constructor),
-	// {function} _destroy (replaces previous destroy)
-	var Plugin = function () {
-	  function Plugin(element, options) {
-	    _classCallCheck(this, Plugin);
-
-	    this._setup(element, options);
-	    var pluginName = getPluginName(this);
-	    this.uuid = (0, _foundationUtil.GetYoDigits)(6, pluginName);
-
-	    if (!this.$element.attr('data-' + pluginName)) {
-	      this.$element.attr('data-' + pluginName, this.uuid);
-	    }
-	    if (!this.$element.data('zfPlugin')) {
-	      this.$element.data('zfPlugin', this);
-	    }
-	    /**
-	     * Fires when the plugin has initialized.
-	     * @event Plugin#init
-	     */
-	    this.$element.trigger('init.zf.' + pluginName);
-	  }
-
-	  _createClass(Plugin, [{
-	    key: 'destroy',
-	    value: function destroy() {
-	      this._destroy();
-	      var pluginName = getPluginName(this);
-	      this.$element.removeAttr('data-' + pluginName).removeData('zfPlugin')
-	      /**
-	       * Fires when the plugin has been destroyed.
-	       * @event Plugin#destroyed
-	       */
-	      .trigger('destroyed.zf.' + pluginName);
-	      for (var prop in this) {
-	        this[prop] = null; //clean up script to prep for garbage collection.
-	      }
-	    }
-	  }]);
-
-	  return Plugin;
-	}();
-
-	// Convert PascalCase to kebab-case
-	// Thank you: http://stackoverflow.com/a/8955580
-
-
-	function hyphenate(str) {
-	  return str.replace(/([a-z])([A-Z])/g, '$1-$2').toLowerCase();
-	}
-
-	function getPluginName(obj) {
-	  if (typeof obj.constructor.name !== 'undefined') {
-	    return hyphenate(obj.constructor.name);
-	  } else {
-	    return hyphenate(obj.className);
-	  }
-	}
-
-	exports.Plugin = Plugin;
-
-/***/ }),
-/* 18 */
 /***/ (function(module, exports) {
 
 	'use strict';
@@ -2746,46 +2107,303 @@
 
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-	/**
-	 * @file
-	 *
-	 * DELETE ME!
-	 * Example Person class
-	 */
+	var VidKit = function () {
+	  function VidKit($el, opts) {
+	    _classCallCheck(this, VidKit);
 
-	var Person = function () {
-	  function Person(name) {
-	    _classCallCheck(this, Person);
-
-	    // property assignment
-	    this.name = name;
+	    if (!opts.videoUrl || !opts.videoType) {
+	      return;
+	    }
+	    this.init(opts, $el);
 	  }
 
-	  // Class method
+	  _createClass(VidKit, [{
+	    key: 'init',
+	    value: function init(settings, $base) {
+	      this.opts = $.extend({
+	        videoUrl: '',
+	        videoType: 'youtube',
+	        elementId: 'bg-video',
+	        loop: 1,
+	        autoplay: 1,
+	        controls: 0,
+	        aspectRatio: 1.3333333,
+	        verticalAlign: 'middle',
+	        backgroundSize: 'cover'
+	      }, settings);
 
+	      this.$base = $($base);
+	      this.$parent = this.$base.parent();
 
-	  _createClass(Person, [{
-	    key: 'sayName',
-	    value: function sayName() {
-	      // Template strings
-	      return 'My name is ' + this.name + '.';
+	      this.opts.videoId = this.getVideoId();
+	      this.playerReady = false;
+	      this.state = -1;
+	      this.player = '';
+
+	      // Autoplay isn't supported on many mobile devices so we
+	      // shouldn't even bother with a background video.
+	      if (typeof Modernizr !== 'undefined' && Modernizr.touchevents) {
+	        return;
+	      }
+
+	      if (this.opts.videoType === "youtube") {
+	        this.initYT();
+	      } else if (this.opts.videoType === "vimeo") {
+	        this.initVimeo();
+	      } else {
+	        throw new Error('The video type is not supported.');
+	      }
+
+	      this.setFluidContainer();
 	    }
+	  }, {
+	    key: 'initYT',
+	    value: function initYT() {
+	      var player = void 0;
+	      var inst = this;
+	      // This code loads the IFrame Player API code asynchronously.
+	      var tag = document.createElement('script');
 
-	    // Static method
+	      tag.src = "https://www.youtube.com/iframe_api";
+	      var firstScriptTag = document.getElementsByTagName('script')[0];
+	      firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 
-	  }], [{
-	    key: 'greeting',
-	    value: function greeting() {
-	      var name = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 'World';
+	      // Create container element since YT API can only select elements by id.
+	      this.$base.prepend('<div id="' + this.opts.elementId + '" />');
 
-	      return 'Hello, ' + name + '!';
+	      // This function creates an <iframe> (and YouTube player)
+	      //    after the API code downloads.
+	      window.onYouTubeIframeAPIReady = function () {
+	        player = new YT.Player(inst.opts.elementId, {
+	          width: '100%',
+	          height: '100%',
+	          videoId: inst.opts.videoId,
+	          playerVars: {
+	            'autoplay': inst.opts.autoplay,
+	            'controls': inst.opts.controls,
+	            'showinfo': 0,
+	            'rel': 0,
+	            'modestbranding': 1,
+	            'wmode': 'transparent',
+	            'relatedvideos': 0
+	          },
+	          events: {
+	            'onReady': onPlayerReady,
+	            'onStateChange': onPlayerStateChange
+	          }
+	        });
+	      };
+
+	      // The API will call this function when the video player is ready.
+	      window.onPlayerReady = function (event) {
+	        inst.player = event.target;
+
+	        if (inst.opts.autoplay === 1) {
+	          event.target.playVideo();
+	          inst.$base.trigger('vidKit.playing');
+	        } else {
+	          inst.$base.addClass('loaded');
+	        }
+
+	        player.setVolume(0);
+
+	        var $vidKit = $(player.getIframe());
+	        var styles = {
+	          position: 'absolute',
+	          left: '0',
+	          top: '0'
+	        };
+
+	        if (player.getPlayerState(0)) {
+	          $vidKit.css(styles);
+	        }
+
+	        inst.playerReady = true;
+	        inst.$base.trigger('vidKit.ready');
+	      };
+
+	      window.onPlayerStateChange = function (state) {
+	        inst.state = state.data;
+	        if (state.data === 0) {
+	          // ended
+	          player.seekTo(0); // restart
+	          inst.$base.trigger('vidKit.ended');
+	        } else if (state.data === 1) {
+	          // playing
+	          inst.$base.trigger('vidKit.playing');
+	          inst.$base.addClass('loaded');
+	        }
+	      };
+	    }
+	  }, {
+	    key: 'play',
+	    value: function play() {
+	      if (this.playerReady) {
+	        this.player.playVideo();
+	      }
+	    }
+	  }, {
+	    key: 'pause',
+	    value: function pause() {
+	      if (this.playerReady && this.state === 1) {
+	        this.player.pauseVideo();
+	      }
+	    }
+	  }, {
+	    key: 'stop',
+	    value: function stop() {
+	      if (this.playerReady) {
+	        this.player.stopVideo();
+	      }
+	    }
+	  }, {
+	    key: 'seekTo',
+	    value: function seekTo(seconds) {
+	      if (this.playerReady) {
+	        seconds = seconds || 0;
+	        this.player.seekTo(seconds);
+	      }
+	    }
+	  }, {
+	    key: 'initVimeo',
+	    value: function initVimeo() {
+	      var player = void 0,
+	          tag = void 0,
+	          firstScriptTag = void 0,
+	          $iframe = void 0;
+	      var inst = this;
+	      var width = Math.ceil(inst.$parent.width());
+	      var height = Math.ceil(width / inst.opts.aspectRatio);
+	      var src = '//player.vimeo.com/video/' + inst.opts.videoId + '?';
+	      var params = {
+	        api: 1,
+	        title: 0,
+	        byline: 0,
+	        width: width,
+	        height: height,
+	        loop: inst.opts.loop,
+	        autoplay: inst.opts.autoplay,
+	        badge: 0
+	      };
+
+	      $.each(params, function (key, val) {
+	        src = src + key + '=' + val + '&amp;';
+	      });
+
+	      // Remove last ampersand.
+	      src = src.slice(0, src.lastIndexOf('&amp;'));
+
+	      $iframe = $('<iframe />', {
+	        src: src,
+	        frameborder: 0,
+	        width: '100%',
+	        height: '100%'
+	      });
+
+	      tag = document.createElement('script');
+	      tag.setAttribute('id', 'froogaloop2');
+
+	      tag.src = "https://f.vimeocdn.com/js/froogaloop2.min.js";
+	      firstScriptTag = document.getElementsByTagName('script')[0];
+	      firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+	      inst.$base.prepend($iframe);
+
+	      $('#froogaloop2').load(function () {
+	        player = $f($iframe[0]);
+
+	        player.addEvent('ready', function () {
+	          player.api('setVolume', 0);
+	        });
+	      });
+	    }
+	  }, {
+	    key: 'setFluidContainer',
+	    value: function setFluidContainer() {
+	      var inst = this;
+	      var $video = inst.$base;
+	      var $parent = inst.$parent;
+	      var styles = {
+	        left: '50%',
+	        transform: 'translateX(-50%)'
+	      };
+
+	      if (inst.opts.verticalAlign === 'middle') {
+	        styles.top = '50%';
+	        styles.transform += ' translateY(-50%)';
+	      } else if (inst.opts.verticalAlign === 'bottom') {
+	        styles.bottom = '0';
+	      } else {
+	        styles.top = '0';
+	      }
+
+	      $video.css(styles);
+
+	      $(window).resize(function () {
+	        var elWidth = $parent.outerWidth();
+	        var elHeight = $parent.outerHeight();
+
+	        if (inst.opts.backgroundSize === 'cover') {
+	          setWidth($video, elWidth, inst.opts.aspectRatio);
+
+	          if ($video.height() <= elHeight) {
+	            setHeight($video, elHeight, inst.opts.aspectRatio);
+	          }
+	        } else if (inst.opts.backgroundSize === 'contain') {
+	          setWidth($video, elWidth, inst.opts.aspectRatio);
+
+	          if ($video.height() >= elHeight) {
+	            setHeight($video, elHeight, inst.opts.aspectRatio);
+	          }
+	        } else if (inst.opts.backgroundSize === '100%') {
+	          setWidth($video, elWidth, inst.opts.aspectRatio);
+	        } else {
+	          console.log('Please specify a valid backgroundSize option.');
+	        }
+	      }).trigger('resize');
+	    }
+	  }, {
+	    key: 'getVideoId',
+	    value: function getVideoId() {
+	      var index = void 0,
+	          id = void 0;
+	      var url = this.opts.videoUrl;
+
+	      // Remove trailing slash if one exists.
+	      if (url.charAt(url.length - 1) === '/') url.slice(0, -1);
+
+	      // Save the url globally now that we cleaned it up.
+	      this.opts.videoUrl = url;
+
+	      if (this.opts.videoType === 'youtube') {
+	        index = url.indexOf('v=');
+	        if (index > -1) {
+	          id = url.slice(index + 2);
+	        } else {
+	          id = url.slice(url.lastIndexOf('/'));
+	        }
+	      } else if (this.opts.videoType === 'vimeo') {
+	        id = url.slice(url.lastIndexOf('/') + 1);
+	      }
+	      return id;
 	    }
 	  }]);
 
-	  return Person;
+	  return VidKit;
 	}();
 
-	exports.default = Person;
+	exports.default = VidKit;
+
+
+	function setWidth($el, width, ratio) {
+	  $el.width(Math.ceil(width));
+	  $el.height(Math.ceil(width / ratio));
+	}
+
+	function setHeight($el, height, ratio) {
+	  $el.height(Math.ceil(height));
+	  $el.width(Math.ceil(height * ratio));
+	}
 
 /***/ })
 /******/ ]);
