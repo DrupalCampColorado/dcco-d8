@@ -33,6 +33,7 @@ module:
   dblog: 0
   devel: 0
   dynamic_page_cache: 0
+  e3_google_tag: 0
   editor: 0
   embed: 0
   entity: 0

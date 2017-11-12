@@ -11,9 +11,6 @@
 // Show all error messages on the site
 $config['system.logging']['error_level'] = 'all';
 
- // Disable Google Analytics from sending dev GA data.
-$config['google_analytics.settings']['account'] = 'UA-XXXXXXXX-YY';
-
 // Expiration of cached pages to 0
 $config['system.performance']['cache']['page']['max_age'] = 0;
 
