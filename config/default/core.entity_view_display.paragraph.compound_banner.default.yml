@@ -11,6 +11,7 @@ dependencies:
     - paragraphs.paragraphs_type.compound_banner
   module:
     - block_field
+    - link
 id: paragraph.compound_banner.default
 targetEntityType: paragraph
 bundle: compound_banner
@@ -26,11 +27,15 @@ content:
     region: content
   field_event_location:
     weight: 2
-    label: hidden
+    label: above
     settings:
-      link_to_entity: false
+      trim_length: 120
+      target: _blank
+      url_only: false
+      url_plain: false
+      rel: '0'
     third_party_settings: {  }
-    type: string
+    type: link
     region: content
   field_mailchimp_form:
     weight: 0
