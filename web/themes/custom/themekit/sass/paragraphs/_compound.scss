@@ -61,9 +61,31 @@
       font-family: $font-arvo;
       font-weight: bold;
       text-transform: uppercase;
+      margin-bottom: 0;
     }
     label {
       @extend .visually-hidden;
+    }
+    .form-email {
+      color: $white;
+      border-color: $white;
+      transition: 0.5s ease box-shadow , 0.25s ease border-color, .3s ease background;
+      &:active,
+      &:focus {
+        color: $font-gray;
+      }
+    }
+    .form-item {
+      margin: .575rem 0;
+    }
+    .button {
+      @include btn(ghost);
+      text-transform: uppercase;
+      font-weight: bold;
+      transition: .3s ease background, .3s ease color, .3s ease transform;
+      &:active {
+        transform: scale(.9)
+      }
     }
   }
 }

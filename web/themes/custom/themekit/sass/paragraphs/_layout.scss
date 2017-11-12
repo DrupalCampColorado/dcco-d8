@@ -35,6 +35,19 @@
     justify-content: space-evenly;
     position: relative;
     z-index: z(front);
+    &:after {
+      content: '';
+      position: absolute;
+      left: 50%;
+      top: 35%;
+      background: url(../images/svg/arrows.svg);
+      width: 115px;
+      height: 115px;
+      background-repeat: no-repeat;
+      background-size: contain;
+      transform: translate(-50%, -50%);
+      filter: opacity(0.2);
+    }
     > .field__item {
       padding: $medium-large-margin $medium-margin;
       font-size: $medium-font-size;
@@ -57,6 +70,7 @@
       }
       &:last-child {
         background-color: $white;
+        color: $font-gray;
         min-width: 100vw;
         @include breakpoint(medium) {
           min-width: auto;
@@ -68,6 +82,103 @@
       font-weight: bold;
       text-transform: uppercase;
       margin-bottom: $xtra-small-margin;
+    }
+    .mailchimp-newsletter-mergefields {
+      margin-bottom: $small-margin;
+    }
+    .block-mailchimp-signup h2,
+    legend {
+      font-family: $font-arvo;
+      font-size: $medium-font-size;
+      font-weight: bold;
+      text-transform: uppercase;
+      margin-bottom: $xtra-small-margin;
+    }
+    label {
+      line-height: 1.6;
+      display: inline-block;
+      position: relative;
+    }
+    .form-required {
+      &:after {
+        content: '*';
+        color: $dark-orange;
+        background: none;
+        font-size: 1.075rem;
+        position: absolute;
+        top: -0.275rem;
+        right: -.875rem;
+      }
+    }
+    input {
+      margin-bottom: 0;
+    }
+    .form-type-email,
+    .form-type-textfield {
+      margin: .3rem 0;
+    }
+  }
+  .fieldgroup {
+    legend {
+      margin-bottom: .575rem;
+    }
+  }
+  .form-type-checkbox {
+    font-size: 1rem;
+    margin: .2rem 0;
+    &:first-child {
+      margin-top: 0;
+    }
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+  .form-type-checkbox {
+    .form-checkbox {
+      position: absolute;
+      opacity: 0;
+      & + label {
+        position: relative;
+        cursor: pointer;
+        padding: 0;
+        margin-left: 3px;
+        &:before {
+          content: '';
+          margin-right: 10px;
+          display: inline-block;
+          vertical-align: middle;
+          width: 13px;
+          height: 13px;
+          background: $white;
+          box-shadow: 0 0 0 3px $gray;
+        }
+      }
+      &:hover + label:before,
+      &:focus + label:before,
+      &:checked + label:before {
+        background: $gray;
+      }
+      &:checked + label:after {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 5px;
+        background: url(../images/check-symbol.png);
+        width: 65%;
+        height: 65%;
+        background-repeat: no-repeat;
+        background-size: contain;
+      }
+    }
+  }
+  .button {
+    @include btn(gray);
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: $main-font-size;
+    transition: .3s ease background, .3s ease color, .3s ease transform;
+    &:active {
+      transform: scale(.9)
     }
   }
 }
