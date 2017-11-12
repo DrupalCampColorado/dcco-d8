@@ -3,14 +3,54 @@
 ////
 
 .region-footer {
+  display: flex;
+  flex-flow: row wrap;
+  flex-basis: auto;
+  justify-content: space-between;
+  max-width: $global-width;
+  margin: 0 auto;
+  padding: rem-calc(12 0 96);
   color: $white;
-  background-color: $light-orange;
   z-index: z(front);
   position: relative;
   min-height: 122px;
-  > .block {
-    max-width: $global-width;
-    margin: 0 auto;
-    padding: rem-calc(12 0 96);
+  &:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -200%;
+    width: 500%;
+    height: 100%;
+    background-color: $light-orange;
+    z-index: z(behind);
+  }
+  h2 {
+    font-size: $font-size-small;
+  }
+  .menu--social {
+    display: flex;
+    flex-flow: row nowrap;
+    flex-basis: auto;
+  }
+  .menu-item {
+    line-height: 1;
+    a {
+      position: relative;
+      color: transparent;
+      display: inline-block;
+      pointer-events: none;
+      &:after {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 0;
+        background: url(../images/twitter.png);
+        width: 1rem;
+        height: 1rem;
+        background-repeat: no-repeat;
+        background-size: contain;
+        pointer-events: initial;
+      }
+    }
   }
 }
