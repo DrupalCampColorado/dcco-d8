@@ -15,3 +15,7 @@
 body {
   overflow-x: hidden;
 }
+
+.page-title {
+  @extend .visually-hidden;
+}
