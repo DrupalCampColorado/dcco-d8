@@ -114,8 +114,8 @@ $large-font-size: rem-calc(24);
 // --------------
 // Drupal colors
 $errorbg: #c74e4e;
-$warningbg: #d28712;
-$statusokbg: #2ca20d;
+$warningbg: $dark-orange;
+$statusokbg: $green;
 
 $icons: (
   check: "\e86c",
