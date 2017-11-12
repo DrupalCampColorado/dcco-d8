@@ -752,7 +752,7 @@
 	        if (player.getPlayerState(0)) {
 	          $vidKit.css(styles);
 	        }
-
+	        $vidKit.attr('tabindex', '-1');
 	        inst.playerReady = true;
 	        inst.$base.trigger('vidKit.ready');
 	      };

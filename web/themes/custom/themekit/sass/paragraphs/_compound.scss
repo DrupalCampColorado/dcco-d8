@@ -102,6 +102,30 @@
       @include breakpoint(medium) {
         font-size: $main-font-size;
       }
+
+      a {
+        color: #fff;
+        position: relative;
+        display: inline-block;
+
+        &:after {
+          content: '';
+          display: block;
+          position: absolute;
+          bottom: 4px;
+          left: 0;
+          width: 100%;
+          height: 2px;
+          background: rgba(#fff, 0.6);
+          transition: 0.2s background;
+        }
+
+        @include selectors(active) {
+          &:after {
+            background: rgba(#fff, 1);
+          }
+        }
+      }
     }
   }
 
