@@ -2,43 +2,52 @@
 /// Paragraphs - Compound
 ////
 
-.paragraph--type--compound-banner {
-  position: relative;
-
-}
-
 /// Header Banner Area
 /// ==================
-.paragraph--type--compound-banner {
-  display: flex;
-  flex-flow: row nowrap;
-  flex-basis: auto;
-  justify-content: space-between;
-  color: $white;
-  padding: rem-calc(40 60);
-  position: relative;
-  overflow: hidden;
-  min-height: 530px;
 
-  &:before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -200%;
-    width: 500%;
-    height: 100%;
-    background-color: rgba($light-orange, 0.5);
-    z-index: z(behind);
+.node--type-landing-page > .node__content > .paragraph.paragraph--type--compound-banner {
+  max-width: none;
+}
+
+.paragraph--type--compound-banner {
+  background: $light-orange;
+
+  .content-wrap {
+    display: flex;
+    flex-flow: row nowrap;
+    flex-basis: auto;
+    justify-content: space-between;
+    color: $white;
+    padding: rem-calc(40 60);
+    position: relative;
+    overflow: hidden;
+    min-height: 530px;
+    max-width: $global-width;
+    margin: 0 auto;
+    z-index: z(banner, default);
   }
 
   .video-container {
     position: absolute;
     opacity: 0;
-    z-index: -4;
+    z-index: z(banner, video);
     transition: 1s opacity ease-out;
+
+    &:before {
+      content: '';
+      display: block;
+      position: absolute;
+      top: 0; right: 0; bottom: 0; left: 0;
+      background-color: rgba(#ff9000, 0.5);
+      z-index: 1;
+    }
 
     &.loaded {
       opacity: 1;
+    }
+
+    iframe {
+      filter: grayscale(1);
     }
   }
 
