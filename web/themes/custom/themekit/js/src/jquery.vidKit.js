@@ -1,3 +1,5 @@
+const $ = jQuery;
+
 export default class VidKit {
   constructor($el, opts) {
     if (!opts.videoUrl || !opts.videoType) {

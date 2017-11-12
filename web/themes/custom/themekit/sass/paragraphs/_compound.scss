@@ -13,26 +13,52 @@
   background: $light-orange;
 
   .content-wrap {
-    display: flex;
-    flex-flow: row nowrap;
-    flex-basis: auto;
-    justify-content: space-between;
     color: $white;
     padding: rem-calc(40 60);
     position: relative;
     overflow: hidden;
-    min-height: 530px;
-    max-width: $global-width;
     margin: 0 auto;
     z-index: z(banner, default);
     background-color: $burnt-orange;
+    @include content-width(header);
+
+    @include breakpoint(medium-large) {
+      min-height: 530px;
+    }
+  }
+
+  .banner-header {
+    display: flex;
+    flex-flow: row nowrap;
+    flex-basis: auto;
+    justify-content: space-between;
+    margin-bottom: rem-calc(20px);
+  }
+
+  .site-logo {
+    max-width: 55%;
+    margin: 0 auto;
+    display: block;
+    
+    @include breakpoint(medium-large) {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      max-width: rem-calc(350px);
+    }
   }
 
   .video-container {
+    display: none;
     position: absolute;
     opacity: 0;
     z-index: z(banner, video);
     transition: 1s opacity ease-out;
+
+    @include breakpoint(medium) {
+      display: block;
+    }
 
     &:before {
       content: '';
@@ -56,21 +82,43 @@
     font-family: $font-arvo;
     text-align: right;
     text-transform: uppercase;
-    line-height: rem-calc(28);
+
+    line-height: 1.6;
+
+    @include breakpoint(medium) {
+      line-height: rem-calc(28);
+    }
+
     .field--name-field-event-date {
-      font-size: $medium-font-size;
-    }
-    .field-name-field-event-location {
       font-size: $main-font-size;
+
+      @include breakpoint(medium) {
+        font-size: $medium-font-size;
+      }
     }
+    .field--name-field-event-location {
+      font-size: $small-font-size;
+
+      @include breakpoint(medium) {
+        font-size: $main-font-size;
+      }
+    }
+  }
+
+  .field--name-field-mailchimp-form {
+    max-width: 50%;
   }
 
   .block-mailchimp-signup {
     h2 {
-      font-size: $medium-font-size;
       font-family: $font-arvo;
       font-weight: bold;
       text-transform: uppercase;
+      font-size: $small-font-size;
+
+      @include breakpoint(medium) {
+        font-size: $medium-font-size;
+      }
     }
     label {
       @extend .visually-hidden;
@@ -78,6 +126,8 @@
 
     form {
       position: relative;
+      display: flex;
+      flex-flow: row nowrap;
     }
     
     .form-item {
@@ -96,9 +146,6 @@
 
     [data-drupal-selector="edit-actions"] {
       margin: 0;
-      position: absolute;
-      top: 0;
-      left: 100%;
     }
 
     [type="submit"] {
