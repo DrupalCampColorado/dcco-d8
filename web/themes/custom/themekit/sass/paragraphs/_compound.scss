@@ -25,6 +25,7 @@
     max-width: $global-width;
     margin: 0 auto;
     z-index: z(banner, default);
+    background-color: $burnt-orange;
   }
 
   .video-container {
@@ -73,6 +74,35 @@
     }
     label {
       @extend .visually-hidden;
+    }
+
+    form {
+      position: relative;
+    }
+    
+    .form-item {
+      margin: 0;
+    }
+    
+    [type="email"] {
+      transition: 0.2s background-color;
+      &:focus {
+        background: rgba(#fff, 0.2);
+        border: 2px solid #fff;
+        box-shadow: none;
+        outline: 0 none;
+      }
+    }
+
+    [data-drupal-selector="edit-actions"] {
+      margin: 0;
+      position: absolute;
+      top: 0;
+      left: 100%;
+    }
+
+    [type="submit"] {
+      // TODO: apply button styles.
     }
   }
 }

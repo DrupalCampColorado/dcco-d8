@@ -39,7 +39,7 @@ content:
     settings:
       title: 'Header component'
       title_plural: 'Header components'
-      edit_mode: preview
+      edit_mode: closed
       add_mode: select
       form_display_mode: default
       default_paragraph_type: _none
