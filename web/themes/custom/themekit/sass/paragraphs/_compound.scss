@@ -82,8 +82,8 @@
     font-family: $font-arvo;
     text-align: right;
     text-transform: uppercase;
-
     line-height: 1.6;
+    max-width: 45%;
 
     @include breakpoint(medium) {
       line-height: rem-calc(28);

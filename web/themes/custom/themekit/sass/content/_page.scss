@@ -16,6 +16,10 @@ body {
   overflow-x: hidden;
 }
 
+.layout-container {
+  overflow: hidden;
+}
+
 .page-title {
   @extend .visually-hidden;
 }
