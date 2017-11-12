@@ -3,10 +3,12 @@ langcode: en
 status: true
 dependencies:
   config:
+    - field.field.node.landing_page.field_metatags
     - field.field.node.landing_page.field_p_content
     - field.field.node.landing_page.field_p_header
     - node.type.landing_page
   module:
+    - metatag
     - paragraphs_previewer
     - path
     - scheduler
@@ -20,6 +22,12 @@ content:
     weight: 5
     settings: {  }
     third_party_settings: {  }
+    region: content
+  field_metatags:
+    weight: 122
+    settings: {  }
+    third_party_settings: {  }
+    type: metatag_firehose
     region: content
   field_p_content:
     type: entity_reference_paragraphs_previewer
@@ -39,7 +47,7 @@ content:
     settings:
       title: 'Header component'
       title_plural: 'Header components'
-      edit_mode: preview
+      edit_mode: closed
       add_mode: select
       form_display_mode: default
       default_paragraph_type: _none

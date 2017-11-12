@@ -2,43 +2,53 @@
 /// Paragraphs - Compound
 ////
 
-.paragraph--type--compound-banner {
-  position: relative;
-
-}
-
 /// Header Banner Area
 /// ==================
-.paragraph--type--compound-banner {
-  display: flex;
-  flex-flow: row nowrap;
-  flex-basis: auto;
-  justify-content: space-between;
-  color: $white;
-  padding: rem-calc(40 60);
-  position: relative;
-  overflow: hidden;
-  min-height: 530px;
 
-  &:before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -200%;
-    width: 500%;
-    height: 100%;
-    background-color: rgba($light-orange, 0.5);
-    z-index: z(behind);
+.node--type-landing-page > .node__content > .paragraph.paragraph--type--compound-banner {
+  max-width: none;
+}
+
+.paragraph--type--compound-banner {
+  background: $light-orange;
+
+  .content-wrap {
+    display: flex;
+    flex-flow: row nowrap;
+    flex-basis: auto;
+    justify-content: space-between;
+    color: $white;
+    padding: rem-calc(40 60);
+    position: relative;
+    overflow: hidden;
+    min-height: 530px;
+    max-width: $global-width;
+    margin: 0 auto;
+    z-index: z(banner, default);
+    background-color: $burnt-orange;
   }
 
   .video-container {
     position: absolute;
     opacity: 0;
-    z-index: -4;
+    z-index: z(banner, video);
     transition: 1s opacity ease-out;
+
+    &:before {
+      content: '';
+      display: block;
+      position: absolute;
+      top: 0; right: 0; bottom: 0; left: 0;
+      background-color: rgba(#ff9000, 0.5);
+      z-index: 1;
+    }
 
     &.loaded {
       opacity: 1;
+    }
+
+    iframe {
+      filter: grayscale(1);
     }
   }
 
@@ -61,24 +71,38 @@
       font-family: $font-arvo;
       font-weight: bold;
       text-transform: uppercase;
-      margin-bottom: 0;
+      margin-bottom: .2rem;
     }
     label {
       @extend .visually-hidden;
     }
-    .form-email {
+
+    form {
+      position: relative;
+    }
+    
+    .form-item {
+      margin: 0;
+    }
+    
+    [type="email"] {
       color: $white;
-      border-color: $white;
+      border: 2px solid $white;
       transition: 0.5s ease box-shadow , 0.25s ease border-color, .3s ease background;
+      margin-bottom: 0.675rem;
       &:active,
       &:focus {
         color: $font-gray;
+        background: $white;
+        border: 2px solid $white;
       }
     }
-    .form-item {
-      margin: .575rem 0;
+
+    [data-drupal-selector="edit-actions"] {
+      margin: 0;
     }
-    .button {
+
+    [type="submit"] {
       @include btn(ghost);
       text-transform: uppercase;
       font-weight: bold;

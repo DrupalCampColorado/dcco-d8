@@ -2,6 +2,7 @@
 /// ======================
 .paragraph--type--layout-component-group {
   position: relative;
+  z-index: 10;
   &:before {
     content: '';
     position: absolute;

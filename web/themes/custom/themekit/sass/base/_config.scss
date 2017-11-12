@@ -35,9 +35,10 @@ $z-layers: (
   behind: -1,
 
   // example nested z-index.
-  example: (
+  banner: (
     default: 100,
-    image: -2
+    video: -20,
+    video-filters: -10
   )
 );
 
