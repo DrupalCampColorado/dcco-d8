@@ -54,6 +54,24 @@ $buttons: (
   ),
   blue: (
     extend: _base
+  ),
+  gray: (
+    extend: _base,
+    background: $font-gray,
+    color: $white,
+    border: $font-gray,
+    active-background: darken($font-gray, 10%),
+    active-color: $white,
+    active-border: darken($font-gray, 10%)
+  ),
+  ghost: (
+      extend: _base,
+      background: transparent,
+      color: $white,
+      border: $white,
+      active-background: $white,
+      active-color: $font-gray,
+      active-border: $white
   )
 );
 

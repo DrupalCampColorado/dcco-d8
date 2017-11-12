@@ -107,10 +107,15 @@
         color: #fff;
         position: relative;
         display: inline-block;
+        text-decoration: underline;
+
+        @include breakpoint(medium) {
+          text-decoration: none;
+        }
 
         &:after {
+          display: none;
           content: '';
-          display: block;
           position: absolute;
           bottom: 4px;
           left: 0;
@@ -118,6 +123,10 @@
           height: 2px;
           background: rgba(#fff, 0.6);
           transition: 0.2s background;
+
+          @include breakpoint(medium) {
+            display: block;
+          }
         }
 
         @include selectors(active) {
@@ -138,8 +147,8 @@
       font-family: $font-arvo;
       font-weight: bold;
       text-transform: uppercase;
+      margin-bottom: .2rem;
       font-size: $small-font-size;
-
       @include breakpoint(medium) {
         font-size: $medium-font-size;
       }
@@ -151,7 +160,7 @@
     form {
       position: relative;
       display: flex;
-      flex-flow: row nowrap;
+      flex-flow: column nowrap;
     }
     
     .form-item {
@@ -159,12 +168,15 @@
     }
     
     [type="email"] {
-      transition: 0.2s background-color;
+      color: $white;
+      border: 2px solid $white;
+      transition: 0.5s ease box-shadow , 0.25s ease border-color, .3s ease background;
+      margin-bottom: 0.675rem;
+      &:active,
       &:focus {
-        background: rgba(#fff, 0.2);
-        border: 2px solid #fff;
-        box-shadow: none;
-        outline: 0 none;
+        color: $font-gray;
+        background: $white;
+        border: 2px solid $white;
       }
     }
 
@@ -173,7 +185,13 @@
     }
 
     [type="submit"] {
-      // TODO: apply button styles.
+      @include btn(ghost);
+      text-transform: uppercase;
+      font-weight: bold;
+      transition: .3s ease background, .3s ease color, .3s ease transform;
+      &:active {
+        transform: scale(.9)
+      }
     }
   }
 }
