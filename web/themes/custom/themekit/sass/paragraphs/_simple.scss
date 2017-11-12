@@ -6,11 +6,11 @@
 /// ====================
 .paragraph--type--simple-testimonial {
   background-color: $dark-orange;
-  padding: $medium-large-margin $medium-margin;
   text-align: center;
   color: $white;
   position: relative;
   z-index: z(middle);
+  padding: $medium-large-margin $small-margin;
 
   @include breakpoint(medium) {
     padding: $medium-large-margin $xtra-large-margin;
@@ -43,8 +43,8 @@
     position: relative;
     font-size: $large-font-size;
     font-family: $font-special-elite;
-    padding: 0 $small-margin $xtra-small-margin;
     z-index: z(front);
+    padding: 0;
   }
   .field--name-field-credit {
     position: relative;
