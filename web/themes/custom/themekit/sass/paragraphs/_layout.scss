@@ -36,19 +36,6 @@
     justify-content: space-evenly;
     position: relative;
     z-index: z(front);
-    &:after {
-      content: '';
-      position: absolute;
-      left: 50%;
-      top: 35%;
-      background: url(../images/svg/arrows.svg);
-      width: 115px;
-      height: 115px;
-      background-repeat: no-repeat;
-      background-size: contain;
-      transform: translate(-50%, -50%);
-      filter: opacity(0.2);
-    }
     > .field__item {
       padding: $medium-large-margin $medium-margin;
       font-size: $medium-font-size;
@@ -61,8 +48,32 @@
       &:first-child {
         background-color: $green;
         color: $white;
+        position: relative;
+        &:after {
+          content: '';
+          position: absolute;
+          left: 50%;
+          top: 100%;
+          background: url(../images/svg/arrows.svg);
+          width: 100px;
+          height: 100px;
+          background-repeat: no-repeat;
+          background-size: contain;
+          transform: translate(-50%, -50%);
+          filter: opacity(0.2);
+          z-index: z(middle);
+          @include breakpoint(medium) {
+            top: 35%;
+            left: 100%;
+          }
+          @include breakpoint(large) {
+            width: 115px;
+            height: 115px;
+          }
+        }
         p {
           margin-bottom: rem-calc(22);
+          z-index: z(front);
           &:last-child {
             font-size: $main-font-size;
             margin-bottom: 0;
@@ -152,21 +163,35 @@
           height: 13px;
           background: $white;
           box-shadow: 0 0 0 3px $gray;
+          transition: 0.3s ease background;
+        }
+        &:after {
+          content: '';
+          display: block;
+          position: absolute;
+          top: 6px;
+          left: 0;
+          width: 13px;
+          height: 13px;
+          transform: scale(.1);
+          transition: 0.4s ease transform, .25s ease background;
         }
       }
       &:hover + label:before,
       &:focus + label:before,
       &:checked + label:before {
+        //background: $gray;
+      }
+      &:hover + label:after,
+      &:focus + label:after,
+      &:checked + label:after {
+        transform: scale(1);
         background: $gray;
       }
       &:checked + label:after {
-        content: '';
-        position: absolute;
         left: 0;
-        top: 5px;
-        background: url(../images/check-symbol.png);
-        width: 65%;
-        height: 65%;
+        top: 6px;
+        background: url(../images/check-symbol.png) $gray;
         background-repeat: no-repeat;
         background-size: contain;
       }
