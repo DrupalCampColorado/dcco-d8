@@ -28,7 +28,3 @@ $config['mailchimp.settings']['api_key'] = getenv('AMAZEEIO_MAILCHIMP_API_KEY');
 
 // Enable Tag Manager
 $config['e3_google_tag.settings']['gtm_code'] = 'GTM-PQPMKR5';
-
-// Configure shield for test environment.
-$config['shield.settings']['user'] = 'dcco';
-$config['shield.settings']['pass'] = '3ditdcco';
