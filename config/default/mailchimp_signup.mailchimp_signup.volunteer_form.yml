@@ -30,7 +30,7 @@ send_welcome: null
 include_interest_groups: true
 settings:
   path: ''
-  submit_button: Volunteer!
+  submit_button: 'Let''s Do It!'
   confirmation_message: 'Thanks for your interest in helping making DrupalCamp Colorado 2018 great! We''ll be in touch shortly.'
   destination: ''
   mergefields:
