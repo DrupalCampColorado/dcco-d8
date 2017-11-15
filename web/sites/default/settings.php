@@ -71,6 +71,12 @@ if (getenv('AMAZEEIO_VARNISH_HOSTS') && getenv('AMAZEEIO_VARNISH_SECRET')) {
 //$settings['trusted_host_patterns'] = array(
 //  '^' . str_replace('.', '\.', getenv('AMAZEEIO_SITE_URL')) . '$',
 //);
+$settings['trusted_host_patterns'] = array(
+  '^drupalcampcolorado\.org$',
+  '^.+\.drupalcampcolorado\.org$',
+  '^amazee\.io$',
+  '^.+\.amazee\.io$',
+);
 
 ### Temp directory
 if (getenv('AMAZEEIO_TMP_PATH')) {
